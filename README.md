@@ -1,2 +1,5 @@
-# Udacity_Capstone_Project
-Final project for the Machine Learning Engineer Nanodegree from Udacity.
+# Udacity Capstone Project - Demand Forecasting
+
+- Background - Final project for the Machine Learning Engineer Nanodegree from Udacity.
+
+
