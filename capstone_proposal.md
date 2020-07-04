@@ -11,6 +11,11 @@ _(approx. 1-2 paragraphs)_
 
 In this section, provide brief details on the background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited in this section, including why that research is relevant. Additionally, a discussion of your personal motivation for investigating a particular problem in the domain is encouraged but not required.
 
+**Olles**
+Demand predictions in supply chain managagemnt (SCM) and logistics have historically been a constant pressure to make more precise (source). The reason for this is due to the fact that inaccurate forecasting results in either too low supply to fulfill the current market demand, or too much, which in turn results in increased holding costs. 
+
+Common ways to predict demand in SCM have been statistical models such as the Holt's model, which can provide good predicitons, but as organisations grow larger, the more vital the precision in these predicitons become. Therefore, we will explore the possibility to utilise Machine Learning algorithms to predict the demand of 
+
 ### Problem Statement
 _(approx. 1 paragraph)_
 
