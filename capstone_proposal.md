@@ -1,7 +1,9 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal
 Olle Green
+
 *olleg.green@gmail.com*
+
 July 5th, 2020
 
 ## Proposal
