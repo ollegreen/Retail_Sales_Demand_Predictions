@@ -27,7 +27,7 @@ _(approx. 1 paragraph)_
 In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
 
 **Olle** 
-The problem organisations SCM-departments face is that inaccurate forecasting for future demand cost organisations a lot of either missed sales, or increased costs due to handeling and storage (SORUCE). Therefore, 
+The problem organisations SCM-departments face is that inaccurate forecasting for future demand cost organisations a lot of either missed sales or increased costs due to handling and storage of inventory (Thomas & Griffin, 1996). Therefore, we will test the hypothesis of comapring classic and more common statistical demand forecasting models to the more recent neural networks and machine learning algorithms, to assess if they produce better results. 
 
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
