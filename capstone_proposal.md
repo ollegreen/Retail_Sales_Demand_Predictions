@@ -113,10 +113,24 @@ In this final section, summarize a theoretical workflow for approaching a soluti
 
 **Olle**
 
+To start we will visualise the data to get a better grip of what it looks like and how the different categorical data could be helping in the predictive demand forecasting model. 
+
+
 **Before submitting your proposal, ask yourself. . .**
 
-- Does the proposal you have written follow a well-organized structure similar to that of the project template?
-- Is each section (particularly **Solution Statement** and **Project Design**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification?
+- Does the proposal you have written follow a well-organized structure similar to that of the project template? **Answer**: Yes. 
+
+- Is each section (particularly **Solution Statement** and **Project Design**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification? **Answer:** Yes
 - Would the intended audience of your project be able to understand your proposal?
 - Have you properly proofread your proposal to assure there are minimal grammatical and spelling mistakes?
-- Are all the resources used for this project correctly cited and referenced?
+- Are all the resources used for this project correctly cited and referenced? **Answer:** Yes
+
+
+
+## References
+
+Jaipuria, S., & Mahapatra, S. S. (2014). An improved demand forecasting method to reduce bullwhip effect in supply chains. Expert Systems with Applications, 41(5), 2395–2408. https://doi.org/10.1016/j.eswa.2013.09.038
+
+Shukla, M., & Jharkharia, S. (2011). ARIMA models to forecast demand in fresh supply chains. International Journal of Operational Research, 11(1), 1. https://doi.org/10.1504/ijor.2011.040325
+
+Thomas, D. J., & Griffin, P. M. (1996). Coordinated supply chain management. European Journal of Operational Research, 94(1), 1–15. https://doi.org/10.1016/0377-2217(96)00098-7
