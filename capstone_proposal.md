@@ -82,13 +82,17 @@ In this section, clearly describe a solution to the problem. The solution should
 
 **Olle** 
 
-How we would solve this problem is to test the hypothesis of Neural Networks providing a better prediction compared to classical statistical models, such as the moving average. The way of testing them will be based on either RMSE, MAPE or RME.
+How we would solve this problem is to test the hypothesis of Neural Networks providing a better prediction compared to classical statistical models, such as the moving average. We will do this through analysing the historical patterns in combination with the added features mentioned to predict how tomorrows demand will look like. 
 
 
 ### Benchmark Model
 _(approximately 1-2 paragraphs)_
 
 In this section, provide the details for a benchmark model or result that relates to the domain, problem statement, and intended solution. Ideally, the benchmark model or result contextualizes existing methods or known information in the domain and problem given, which could then be objectively compared to the solution. Describe how the benchmark model or result is measurable (can be measured by some metric and clearly observed) with thorough detail.
+
+**Olle** 
+
+The initial benchmark model will be a moving average model as it is a simple and computationally inexpensive model (), and use that prediction score as a benchmark when we compare it to our machine learning algortihm.  
 
 ### Evaluation Metrics
 _(approx. 1-2 paragraphs)_
