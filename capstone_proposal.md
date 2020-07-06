@@ -36,7 +36,11 @@ In this section, the dataset(s) and/or input(s) being considered for the project
 
 **Olle** 
 
-We will use the dataset provided by Manjeet Singh on Kaggle.com [Link](https://www.kaggle.com/manjeetsingh/retaildataset). This will be 
+We will use the dataset provided by Manjeet Singh on Kaggle.com "Retail Data Analytics
+Historical sales data from 45 stores" [link](https://www.kaggle.com/manjeetsingh/retaildataset). In this dataset we find three separate files: 
+- **Features data set.csv** - 
+- **sales data-set.csv** - 
+- **stores data-set.csv** - 
 
 
 
