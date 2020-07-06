@@ -70,11 +70,6 @@ The initial benchmark model will be a moving average model as it is a simple and
 
 
 ### Evaluation Metrics
-_(approx. 1-2 paragraphs)_
-
-In this section, propose at least one evaluation metric that can be used to quantify the performance of both the benchmark model and the solution model. The evaluation metric(s) you propose should be appropriate given the context of the data, the problem statement, and the intended solution. Describe how the evaluation metric(s) are derived and provide an example of their mathematical representations (if applicable). Complex evaluation metrics should be clearly defined and quantifiable (can be expressed in mathematical or logical terms). 
-
-**Olle** 
 
 Ways to evalute the different models could include 1-3 of the following statistical measures of how accurate a forecast system is;
 
@@ -87,11 +82,6 @@ Ways to evalute the different models could include 1-3 of the following statisti
 All of which will help us to assess which models are providing us with the better demand forecast model. The smaller the number is (closer to 0), the better. 
 
 ### Project Design
-_(approx. 1 page)_
-
-In this final section, summarize a theoretical workflow for approaching a solution given the problem. Provide thorough discussion for what strategies you may consider employing, what analysis of the data might be required before being used, or which algorithms will be considered for your implementation. The workflow and discussion that you provide should align with the qualities of the previous sections. Additionally, you are encouraged to include small visualizations, pseudocode, or diagrams to aid in describing the project design, but it is not required. The discussion should clearly outline your intended workflow of the capstone project.
-
-**Olle**
 
 1. To start we will set up a notebook instance and set up the training, validation and test data. 
 2. Then we will proceed to visualise the data to get a better grip of what it looks like and how the different categorical data could be helping in the predictive demand forecasting model. In this part, we will include a correlation heat map, to understand how the data affect each other. Similar to the one attached: ![Correlation heatmap](https://i.stack.imgur.com/Lh8tv.png)
