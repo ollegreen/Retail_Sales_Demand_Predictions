@@ -102,7 +102,12 @@ In this section, propose at least one evaluation metric that can be used to quan
 
 **Olle** 
 
-Ways to evalute the different models could include mean squared error (MSE), Root Mean Squared Error (RMSE) and Mean Absolute Percentage Error (MAPE). All of which will help us to assess which models are providing us with the better demand forecast model. 
+Ways to evalute the different models could include;
+* mean squared error (MSE)
+* Root Mean Squared Error (RMSE)
+* Mean Absolute Percentage Error (MAPE)
+
+All of which will help us to assess which models are providing us with the better demand forecast model. 
 
 ### Project Design
 _(approx. 1 page)_
