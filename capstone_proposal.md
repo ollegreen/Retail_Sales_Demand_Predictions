@@ -109,12 +109,17 @@ _(approx. 1 page)_
 
 In this final section, summarize a theoretical workflow for approaching a solution given the problem. Provide thorough discussion for what strategies you may consider employing, what analysis of the data might be required before being used, or which algorithms will be considered for your implementation. The workflow and discussion that you provide should align with the qualities of the previous sections. Additionally, you are encouraged to include small visualizations, pseudocode, or diagrams to aid in describing the project design, but it is not required. The discussion should clearly outline your intended workflow of the capstone project.
 
------------
-
 **Olle**
 
-To start we will visualise the data to get a better grip of what it looks like and how the different categorical data could be helping in the predictive demand forecasting model. 
+1. To start we will set up a notebook instance and set up the training, validation and test data. 
+2. Then we will proceed to visualise the data to get a better grip of what it looks like and how the different categorical data could be helping in the predictive demand forecasting model. In this part, we will include a correlation heat map, to understand how the data affect each other. Similar to the one attached: ![Correlation heatmap](https://i.stack.imgur.com/Lh8tv.png)
+3. Then we will build our models -- In this case it seems fitting to test it with a moving average and a neural network to find some good predictions for the sales of the company. 
+4. Then compare the scores -- Comparing the different models form step 3, might be other considered when we get into the data if needed. 
+5. Finalise the results in a summary of what each model gave and what some notes in regards to the use of each model. 
 
+
+
+-----------
 
 **Before submitting your proposal, ask yourself. . .**
 
