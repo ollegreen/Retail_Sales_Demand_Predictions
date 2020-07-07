@@ -6,118 +6,172 @@ Olle Green
 
 July 5th, 2020
 
-## Proposal
+## I. Definition
+_(approx. 1-2 pages)_
 
-### Domain Background
-
-Demand predictions in supply chain managagemnt (SCM) and logistics have historically been a constant pressure to make them more precise (Thomas & Griffin, 1996). The reason for this is due to the fact that inaccurate forecasting results in either too low supply to fulfill the current market demand, or too much, which in turn results in increased holding costs from inventory. Common ways to predict demand in SCM have been statistical models such as the ARIMA model (Jaipuria & Mahapatra, 2014). Academic articles have tested and noted that more advanced neural networks does not show a statistically significant improvement over traditional statistical models such as Moving Average and ARIMA (Shukla & Jharkharia, 2011). 
-
-The key area of interest is: As an organisation grow larger, the more vital the precision in these predicitons become. Therefore, we will explore the possibility to utilise Machine Learning algorithms to predict the demand of certain products, in order for the SCM-team to make better planning for instance purchasing product components for an upcoming season. 
+### Project Overview
+In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
+- _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
+- _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
 
 ### Problem Statement
+In this section, you will want to clearly define the problem that you are trying to solve, including the strategy (outline of tasks) you will use to achieve the desired solution. You should also thoroughly discuss what the intended solution will be for this problem. Questions to ask yourself when writing this section:
+- _Is the problem statement clearly defined? Will the reader understand what you are expecting to solve?_
+- _Have you thoroughly discussed how you will attempt to solve the problem?_
+- _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
 
-The problem organisations SCM-departments face is that inaccurate forecasting for future demand cost organisations a lot of either missed sales or increased costs due to handling and storage of inventory (Thomas & Griffin, 1996). Therefore, we will test the hypothesis of comapring classic and more common statistical demand forecasting models to the more recent neural networks and machine learning algorithms, to assess if they produce better results. This will be used for predicting the department-wide sales for each store for the following year given our dataset of 45 retail stores. With this set-up, we can see that it is quantifiable, measurable and replicable. 
-
-### Datasets and Inputs
-
-We will use the dataset provided by Manjeet Singh on Kaggle.com "Retail Data Analytics
-Historical sales data from 45 stores" [link](https://www.kaggle.com/manjeetsingh/retaildataset). We are provided with historical sales data for 45 stores located in different regions - each store contains a number of departments. The company also runs several promotional markdown events throughout the year. These markdowns precede prominent holidays, the four largest of which are the Super Bowl, Labor Day, Thanksgiving, and Christmas. The weeks including these holidays are weighted five times higher in the evaluation than non-holiday weeks. 
-
-In the dataset we find three separate files: Features, Sales and Stores
-
-#### 1. Features data set.csv
-
-Contains data related to the store, department, and regional activity for the given dates.
-
-* Store - the store number
-* Date - the week
-* Temperature - average temperature in the region
-* Fuel_Price - cost of fuel in the region
-* MarkDown1-5 - anonymized data related to promotional markdowns. MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
-* CPI - the consumer price index
-* Unemployment - the unemployment rate
-* IsHoliday - whether the week is a special holiday week
-* Sales
-
-#### 2. sales data-set.csv
-
-Historical sales data, which covers to 2010-02-05 to 2012-11-01. Within this tab you will find the following fields:
-
-* Store - the store number
-* Dept - the department number
-* Date - the week
-* Weekly_Sales -  sales for the given department in the given store
-* IsHoliday - whether the week is a special holiday week
+### Metrics
+In this section, you will need to clearly define the metrics or calculations you will use to measure performance of a model or result in your project. These calculations and metrics should be justified based on the characteristics of the problem and problem domain. Questions to ask yourself when writing this section:
+- _Are the metrics you’ve chosen to measure the performance of your models clearly discussed and defined?_
+- _Have you provided reasonable justification for the metrics chosen based on the problem and solution?_
 
 
-#### 3. stores data-set.csv
+## II. Analysis
+_(approx. 2-4 pages)_
 
-Anonymized information about the 45 stores, indicating the type and size of store. 
+### Data Exploration
+In this section, you will be expected to analyze the data you are using for the problem. This data can either be in the form of a dataset (or datasets), input data (or input files), or even an environment. The type of data should be thoroughly described and, if possible, have basic statistics and information presented (such as discussion of input features or defining characteristics about the input or environment). Any abnormalities or interesting qualities about the data that may need to be addressed have been identified (such as features that need to be transformed or the possibility of outliers). Questions to ask yourself when writing this section:
+- _If a dataset is present for this problem, have you thoroughly discussed certain features about the dataset? Has a data sample been provided to the reader?_
+- _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
+- _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
+- _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
 
-* The store number (anonomised) 
-* Type 
-* Size
-
-#### Size of total dataset 
-
-The different files containts the following amount of data: 
-* Features data set.csv - 182 rows, 12 columns
-* sales data-set.csv - 143 rows, 5 columns 
-* Stores data-set.csv - 45 rows, 3 columns
-
-#### How will we work with these files 
-
-From my inital analysis, we will try to at least merge the features and sales data-set to find potentially find ways to utilise the data to improve our forecast. Some dates seems to be missing for the sales data vs the features data, but we will address that as we move on with the analysis to find the best forecast method.  
-
-### Solution Statement
-
-How we would solve this problem is to test the hypothesis of Neural Networks providing a better prediction compared to classical statistical models, such as the moving average. We will do this through analysing the historical patterns in combination with the added features mentioned to predict how tomorrows demand will look like. 
+**Olle**
 
 
-### Benchmark Model
 
-The initial benchmark model will be a moving average model as it is a simple and computationally inexpensive model and/or potentially the ARIMA model (Shukla & Jharkharia, 2011), and use that prediction score as a benchmark when we compare it to our machine learning algortihm. 
+### Exploratory Visualization
+In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
+- _Have you visualized a relevant characteristic or feature about the dataset or input data?_
+- _Is the visualization thoroughly analyzed and discussed?_
+- _If a plot is provided, are the axes, title, and datum clearly defined?_
+
+**Olle**
 
 
-### Evaluation Metrics
 
-Ways to evalute the different models could include 1-3 of the following statistical measures of how accurate a forecast system is;
 
-* mean squared error (MSE) - measures the average of the squares of the errors 
-* Root Mean Squared Error (RMSE) - the square root of the variance, known as the standard error
-* Mean Absolute Percentage Error (MAPE) - measures the average of the absolute mean percentage error between the forecast and the actual demand for a specific time 
+### Algorithms and Techniques
+In this section, you will need to discuss the algorithms and techniques you intend to use for solving the problem. You should justify the use of each one based on the characteristics of the problem and the problem domain. Questions to ask yourself when writing this section:
+- _Are the algorithms you will use, including any default variables/parameters in the project clearly defined?_
+- _Are the techniques to be used thoroughly discussed and justified?_
+- _Is it made clear how the input data or datasets will be handled by the algorithms and techniques chosen?_
 
-![Formulas](https://i.stack.imgur.com/83BUy.png)
+**Olle**
 
-All of which will help us to assess which models are providing us with the better demand forecast model. The smaller the number is (closer to 0), the better. 
 
-### Project Design
 
-1. To start we will set up a notebook instance and set up the training, validation and test data. 
-2. Then we will proceed to visualise the data to get a better grip of what it looks like and how the different categorical data could be helping in the predictive demand forecasting model. In this part, we will include a correlation heat map, to understand how the data affect each other. Similar to the one attached: ![Correlation heatmap](https://i.stack.imgur.com/Lh8tv.png)
-3. Then we will build our models -- In this case it seems fitting to test it with a moving average and a neural network to find some good predictions for the sales of the company. 
-4. Then compare the scores -- Comparing the different models form step 3, might be other considered when we get into the data if needed. 
-5. Finalise the results in a summary of what each model gave and what some notes in regards to the use of each model. 
 
+### Benchmark
+In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
+- _Has some result or value been provided that acts as a benchmark for measuring performance?_
+- _Is it clear how this result or value was obtained (whether by data or by hypothesis)?_
+
+**Olle**
+
+
+
+
+## III. Methodology
+_(approx. 3-5 pages)_
+
+### Data Preprocessing
+In this section, all of your preprocessing steps will need to be clearly documented, if any were necessary. From the previous section, any of the abnormalities or characteristics that you identified about the dataset will be addressed and corrected here. Questions to ask yourself when writing this section:
+- _If the algorithms chosen require preprocessing steps like feature selection or feature transformations, have they been properly documented?_
+- _Based on the **Data Exploration** section, if there were abnormalities or characteristics that needed to be addressed, have they been properly corrected?_
+- _If no preprocessing is needed, has it been made clear why?_
+
+**Olle**
+
+
+
+### Implementation
+In this section, the process for which metrics, algorithms, and techniques that you implemented for the given data will need to be clearly documented. It should be abundantly clear how the implementation was carried out, and discussion should be made regarding any complications that occurred during this process. Questions to ask yourself when writing this section:
+- _Is it made clear how the algorithms and techniques were implemented with the given datasets or input data?_
+- _Were there any complications with the original metrics or techniques that required changing prior to acquiring a solution?_
+- _Was there any part of the coding process (e.g., writing complicated functions) that should be documented?_
+
+**Olle**
+
+
+
+### Refinement
+In this section, you will need to discuss the process of improvement you made upon the algorithms and techniques you used in your implementation. For example, adjusting parameters for certain models to acquire improved solutions would fall under the refinement category. Your initial and final solutions should be reported, as well as any significant intermediate results as necessary. Questions to ask yourself when writing this section:
+- _Has an initial solution been found and clearly reported?_
+- _Is the process of improvement clearly documented, such as what techniques were used?_
+- _Are intermediate and final solutions clearly reported as the process is improved?_
+
+**Olle**
+
+
+
+
+## IV. Results
+_(approx. 2-3 pages)_
+
+### Model Evaluation and Validation
+In this section, the final model and any supporting qualities should be evaluated in detail. It should be clear how the final model was derived and why this model was chosen. In addition, some type of analysis should be used to validate the robustness of this model and its solution, such as manipulating the input data or environment to see how the model’s solution is affected (this is called sensitivity analysis). Questions to ask yourself when writing this section:
+- _Is the final model reasonable and aligning with solution expectations? Are the final parameters of the model appropriate?_
+- _Has the final model been tested with various inputs to evaluate whether the model generalizes well to unseen data?_
+- _Is the model robust enough for the problem? Do small perturbations (changes) in training data or the input space greatly affect the results?_
+- _Can results found from the model be trusted?_
+
+**Olle**
+
+
+
+### Justification
+In this section, your model’s final solution and its results should be compared to the benchmark you established earlier in the project using some type of statistical analysis. You should also justify whether these results and the solution are significant enough to have solved the problem posed in the project. Questions to ask yourself when writing this section:
+- _Are the final results found stronger than the benchmark result reported earlier?_
+- _Have you thoroughly analyzed and discussed the final solution?_
+- _Is the final solution significant enough to have solved the problem?_
+
+**Olle**
+
+
+
+
+## V. Conclusion
+_(approx. 1-2 pages)_
+
+### Free-Form Visualization
+In this section, you will need to provide some form of visualization that emphasizes an important quality about the project. It is much more free-form, but should reasonably support a significant result or characteristic about the problem that you want to discuss. Questions to ask yourself when writing this section:
+- _Have you visualized a relevant or important quality about the problem, dataset, input data, or results?_
+- _Is the visualization thoroughly analyzed and discussed?_
+- _If a plot is provided, are the axes, title, and datum clearly defined?_
+
+**Olle**
+
+
+
+### Reflection
+In this section, you will summarize the entire end-to-end problem solution and discuss one or two particular aspects of the project you found interesting or difficult. You are expected to reflect on the project as a whole to show that you have a firm understanding of the entire process employed in your work. Questions to ask yourself when writing this section:
+- _Have you thoroughly summarized the entire process you used for this project?_
+- _Were there any interesting aspects of the project?_
+- _Were there any difficult aspects of the project?_
+- _Does the final model and solution fit your expectations for the problem, and should it be used in a general setting to solve these types of problems?_
+
+**Olle**
+
+
+
+### Improvement
+In this section, you will need to provide discussion as to how one aspect of the implementation you designed could be improved. As an example, consider ways your implementation can be made more general, and what would need to be modified. You do not need to make this improvement, but the potential solutions resulting from these changes are considered and compared/contrasted to your current solution. Questions to ask yourself when writing this section:
+- _Are there further improvements that could be made on the algorithms or techniques you used in this project?_
+- _Were there algorithms or techniques you researched that you did not know how to implement, but would consider using if you knew how?_
+- _If you used your final solution as the new benchmark, do you think an even better solution exists?_
+
+**Olle**
 
 
 -----------
 
-**Before submitting your proposal, ask yourself. . .**
+**Before submitting, ask yourself. . .**
 
-- Does the proposal you have written follow a well-organized structure similar to that of the project template? **Answer**: Yes. 
-
-- Is each section (particularly **Solution Statement** and **Project Design**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification? **Answer:** Yes
-- Would the intended audience of your project be able to understand your proposal?
-- Have you properly proofread your proposal to assure there are minimal grammatical and spelling mistakes?
-- Are all the resources used for this project correctly cited and referenced? **Answer:** Yes
-
-
-
-## References
-
-Jaipuria, S., & Mahapatra, S. S. (2014). An improved demand forecasting method to reduce bullwhip effect in supply chains. Expert Systems with Applications, 41(5), 2395–2408. https://doi.org/10.1016/j.eswa.2013.09.038
-
-Shukla, M., & Jharkharia, S. (2011). ARIMA models to forecast demand in fresh supply chains. International Journal of Operational Research, 11(1), 1. https://doi.org/10.1504/ijor.2011.040325
-
-Thomas, D. J., & Griffin, P. M. (1996). Coordinated supply chain management. European Journal of Operational Research, 94(1), 1–15. https://doi.org/10.1016/0377-2217(96)00098-7
+- Does the project report you’ve written follow a well-organized structure similar to that of the project template? **Answer:**  
+- Is each section (particularly **Analysis** and **Methodology**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification? **Answer:**  
+- Would the intended audience of your project be able to understand your analysis, methods, and results? **Answer:**  
+- Have you properly proof-read your project report to assure there are minimal grammatical and spelling mistakes? **Answer:**  
+- Are all the resources used for this project correctly cited and referenced? **Answer:**  
+- Is the code that implements your solution easily readable and properly commented? **Answer:**  
+- Does the code execute without error and produce results similar to those reported? **Answer:**  
