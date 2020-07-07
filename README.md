@@ -1,5 +1,5 @@
-# Udacity Capstone Project - Demand Forecasting
+# Demand Forecasting for Retail Company - Udacity Capstone Project
 
-- Background - Final project for the Machine Learning Engineer Nanodegree from Udacity.
+- Background - This is part of the Udacity Machine Learning Engineer Nanodegree, being the final project.
 
 
