@@ -52,12 +52,22 @@ Historical sales data, which covers to 2010-02-05 to 2012-11-01. Within this tab
 
 #### 3. stores data-set.csv
 
-Anonymized information about the 45 stores, indicating the type and size of store
+Anonymized information about the 45 stores, indicating the type and size of store. 
 
 * The store number (anonomised) 
 * Type 
 * Size
 
+#### Size of total dataset 
+
+The different files containts the following amount of data: 
+* Features data set.csv - 182 rows, 12 columns
+* sales data-set.csv - 143 rows, 5 columns 
+* Stores data-set.csv - 45 rows, 3 columns
+
+#### How will we work with these files 
+
+From my inital analysis, we will try to at least merge the features and sales data-set to find potentially find ways to utilise the data to improve our forecast. Some dates seems to be missing for the sales data vs the features data, but we will address that as we move on with the analysis to find the best forecast method.  
 
 ### Solution Statement
 
