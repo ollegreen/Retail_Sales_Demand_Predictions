@@ -14,8 +14,6 @@ In this section, look to provide a high-level overview of the project in laymanâ
 - _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
 - _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
 
-___________
-
 **Olle**
 
 #### Problem domain
@@ -121,14 +119,31 @@ _(approx. 2-4 pages)_
 
 ### Data Exploration
 In this section, you will be expected to analyze the data you are using for the problem. This data can either be in the form of a dataset (or datasets), input data (or input files), or even an environment. The type of data should be thoroughly described and, if possible, have basic statistics and information presented (such as discussion of input features or defining characteristics about the input or environment). Any abnormalities or interesting qualities about the data that may need to be addressed have been identified (such as features that need to be transformed or the possibility of outliers). Questions to ask yourself when writing this section:
+
 - _If a dataset is present for this problem, have you thoroughly discussed certain features about the dataset? Has a data sample been provided to the reader?_
+
 - _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
+
 - _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
+
 - _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
 
 **Olle**
 
 #### Features discussion
+
+To provide a decent analysis of all the features from the 3 different files of data into one 
+
+
+* Store - the store number
+* Date - the week
+* Temperature - average temperature in the region
+* Fuel_Price - cost of fuel in the region
+* MarkDown1-5 - anonymized data related to promotional markdowns. MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
+* CPI - the consumer price index
+* Unemployment - the unemployment rate
+* IsHoliday - whether the week is a special holiday week
+* Sales
 
 
 #### Abnormalities or Characteristics of the Data
