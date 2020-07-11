@@ -86,14 +86,18 @@ The interesting part will be that the benchmark we will use to assess our score 
 Ways to evalute the different models will be the following statistical measures of how accuracy and robustness;
 
 **Accuracy:**
+* Mean Absolute Error (MAE) - Measure the mean absolute errors 
 * mean squared error (MSE) - measures the average of the squares of the errors 
 * Root Mean Squared Error (RMSE) - the square root of the variance, known as the standard error
 
 ![Formulas](https://i.stack.imgur.com/83BUy.png)
 
+**Robustness:**
+* R-square (R^2)
+
 All of which will help us to assess which models are providing us with the better demand forecast model. The smaller the number is (closer to 0), the better. 
 
-### Project Design
+### Initial Project Design
 
 1. To start we will set up a notebook instance and set up the training, validation and test data. 
 2. Then we will proceed to visualise the data to get a better grip of what it looks like and how the different categorical data could be helping in the predictive demand forecasting model. In this part, we will include a correlation heat map, to understand how the data affect each other. Similar to the one attached: ![Correlation heatmap](https://i.stack.imgur.com/Lh8tv.png)
