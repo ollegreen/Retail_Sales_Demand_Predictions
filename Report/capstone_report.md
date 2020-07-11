@@ -4,7 +4,7 @@ Olle Green
 
 *olleg.green@gmail.com*
 
-July 5th, 2020
+July 11th, 2020
 
 ## I. Definition
 _(approx. 1-2 pages)_
@@ -95,7 +95,23 @@ In this section, you will need to clearly define the metrics or calculations you
 
 **Olle**
 
+Ways to evalute the different models will be the following statistical measures of how accuracy and robustness;
 
+#### Accuracy:
+* Mean Absolute Error (MAE) - Measure the mean absolute errors. The smaller the number is (closer to 0), the better. 
+* mean Squared Error (MSE) - measures the average of the squares of the errors. The smaller the number is (closer to 0), the better. 
+* Root Mean Squared Error (RMSE) - the square root of the variance, known as the standard error. The smaller the number is (closer to 0), the better. 
+
+##### Why these metrics?
+We are choosing to not only look at one metric, but multiple as there has been exensive research of flaws of each metric when choosing between for example MAE vs RMSE (Willmott & Matsuura, 2005) (Chai & Draxler, 2014). Therefore, we will assess the final models using all three so we can verify the results. Meaning: instead of only looking at one, we instead look at three metrics to be certain there are not issues with our final results due to the metrics themselves. 
+
+![Formulas](https://i.stack.imgur.com/83BUy.png)
+
+#### Robustness:
+* R-square (R^2) - Model used by academics for model robustness (Nair & Vidal, 2011). The smaller the number is (closer to 0), the better. 
+
+#### Final note
+All of these accuracy and robustness metrics will help us to assess which models are providing us with the better demand forecast model before submitting the best one to the kaggle competition to get our actual competition-score.
 
 
 
