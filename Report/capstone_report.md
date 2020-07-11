@@ -127,6 +127,11 @@ In this section, you will be expected to analyze the data you are using for the 
 
 **Olle**
 
+#### Features discussion
+
+
+#### Abnormalities or Characteristics of the Data
+
 
 
 ### Exploratory Visualization
