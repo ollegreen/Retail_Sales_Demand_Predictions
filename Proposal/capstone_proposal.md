@@ -74,7 +74,7 @@ From my inital analysis, we will try to at least merge the features and sales da
 
 ### Solution Statement
 
-How we would solve this problem is to test the hypothesis of Neural Networks providing a better prediction compared to classical statistical models, such as the moving average. We will do this through analysing the historical patterns in combination with the added features mentioned to predict how tomorrows demand will look like. 
+How we would solve this problem is to try out some of the more popular Machine Learning algortihms to find the one providing us with the best predicitons, given this data from Walmart. 
 
 
 ### Benchmark Model
