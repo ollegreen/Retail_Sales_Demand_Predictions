@@ -25,10 +25,53 @@ The key area of interest is: As an organisation grow larger, the more vital the 
 In this case, we will take a look at Walmart, the largest retailer in the US and use their data, which has been provided on kaggle.com in order to predict future demand of their sales. 
 
 #### Problem origin
+The broader demand forecasting prediciton problem has been studied for decades by academics and professionals (Suganthi & Samuel, 2012), however the the utlisation of Machine Learning algortihms for this purpose is a more recent phenomenon that academics still explore to this date (Carbonneau, Laframboise, & Vahidov, 2008) (Law, 2000). 
+
+This specific demand forecasting problem for Walmart originated from kaggle.com and their demand forecasting predicition competition. See link to the competition [here](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting/overview). 
+
 As we have the opportunity to utilise more modern algorithms, we would like to test how good results we can get from these compared to what the general forecaster uses. The general forecaster in this case will be the user "Hari Khanal" on the kaggle competition leaderboards for the Walmart competition, with a prediction score of 3985.79966. Why we chose Hari is because he is close to the median score out of 700 competitors for the Walmart competition. 
 
 #### Related data sets or input data
+The data used for this report was given in the kaggle competition by Walmart, which is as follows; 
 
+##### 1. features.csv
+
+Contains data related to the store, department, and regional activity for the given dates.
+
+* Store - the store number
+* Date - the week
+* Temperature - average temperature in the region
+* Fuel_Price - cost of fuel in the region
+* MarkDown1-5 - anonymized data related to promotional markdowns. MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
+* CPI - the consumer price index
+* Unemployment - the unemployment rate
+* IsHoliday - whether the week is a special holiday week
+* Sales
+
+##### 2. train.csv
+
+Historical sales data used for training. Within this tab you will find the following fields:
+
+* Store - the store number
+* Dept - the department number
+* Date - the week
+* Weekly_Sales -  sales for the given department in the given store
+* IsHoliday - whether the week is a special holiday week
+
+##### 3. test.csv
+
+Same as train.csv in terms of columns, but instead we don't find the "Weekly_Sales", as this will be our dependent variable we will try to predict future sales in the final submission for the kaggle competition.
+
+##### 4. stores.csv
+
+Anonymized information about the 45 stores, indicating the type and size of store. 
+
+* The store number (anonomised) 
+* Type 
+* Size
+
+##### Note:
+Currently given the data provided in the competition, we do not have any other related data sets or input data that we could or should utilise, to be in alignment with the competition rules at kaggle.com. 
 
 
 ### Problem Statement
@@ -37,9 +80,11 @@ In this section, you will want to clearly define the problem that you are trying
 - _Have you thoroughly discussed how you will attempt to solve the problem?_
 - _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
 
-**Olle**
+#### What will we solve
+We will solve the problem of predicitng future demand for sales of different Walmart stores, based on the provided data by the organsation. We will need to identify what data is helping the models, vs causing worse predicitons and adjust the data accordingly. 
 
-
+#### how will we solve it 
+We will use the data provided in the competition, clean it up so we can use it in our models. Then create demand predictions that are better then our kaggle-competition-benchmark score of 3985.79966. The intended solution will be based on the test.csv dataset for our demand predictions, where our machine learning algortihms will give use results which have taken the different features from the other datasets to give us good predictions of future demand. 
 
 
 ### Metrics
