@@ -79,7 +79,7 @@ How we would solve this problem is to try out some of the more popular Machine L
 
 ### Benchmark Model
 
-The interesting part will be that the benchmark we will use to assess our score will not be based on anything else than it's final kaggle leaderboards score in the kaggle competition. In this care that will be the with Hari Khanal", with the score of ***3985.79966.***, which is around the median score for the whole competition. Getting somewhere close to this indicates that we have a functional model that can be improved upon later on if the time is available. 
+The interesting part will be that the benchmark we will use to assess our score will not be based on anything else than it's final kaggle leaderboards score in the kaggle competition. In this care that will be the with "Hari Khanal" with the score of ***3985.79966.***, which is around the median score for the whole competition. Getting somewhere close to this indicates that we have a functional model that can be improved upon later on if the time is available. 
 
 ### Evaluation Metrics
 
