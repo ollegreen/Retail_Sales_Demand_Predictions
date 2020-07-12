@@ -134,7 +134,11 @@ In this section, you will be expected to analyze the data you are using for the 
 
 #### Features discussion
 
-To provide a decent analysis of all the features from the 3 different files of data into one 
+To provide a decent analysis of all the features from the 3 different files of data into one file. See attached image for the header. 
+
+IMAGE OF HEAEDER WITH COLUMNS. 
+
+The different features are as follows: 
 
 ##### Store - the store number
 
