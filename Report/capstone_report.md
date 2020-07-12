@@ -4,7 +4,7 @@ Olle Green
 
 *olleg.green@gmail.com*
 
-July 11th, 2020
+July 12th, 2020
 
 ## I. Definition
 _(approx. 1-2 pages)_
@@ -45,7 +45,6 @@ Contains data related to the store, department, and regional activity for the gi
 * CPI - the consumer price index
 * Unemployment - the unemployment rate
 * IsHoliday - whether the week is a special holiday week
-* Sales
 
 ##### 2. train.csv
 
@@ -137,20 +136,42 @@ In this section, you will be expected to analyze the data you are using for the 
 
 To provide a decent analysis of all the features from the 3 different files of data into one 
 
+##### Store - the store number
 
-* Store - the store number
-* Date - the week
-* Temperature - average temperature in the region
-* Fuel_Price - cost of fuel in the region
-* MarkDown1-5 - anonymized data related to promotional markdowns. MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
-* CPI - the consumer price index
-* Unemployment - the unemployment rate
-* IsHoliday - whether the week is a special holiday week
-* Sales
+##### Date - the week
+
+##### Temperature - average temperature in the region
+
+##### Fuel_Price - cost of fuel in the region
+
+##### MarkDown1-5 - anonymized data related to promotional markdowns. 
+
+MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
+
+##### CPI - the consumer price index
+
+##### Unemployment - the unemployment rate
+
+##### IsHoliday - whether the week is a special holiday week
+
+##### Dept - the department number
+
+##### Weekly_Sales 
+Sales for the given department in the given store
+
+##### IsHoliday - whether the week is a special holiday week
+
+##### The store number (anonomised) 
+Anonymized information about the 45 stores, indicating the type and size of store. 
+##### Type 
+
+##### Size
 
 
 #### Abnormalities or Characteristics of the Data
-
+* MarkDown data is only available after Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA.
+* The test data is not through a full year, but instead it starts in november and ends in july. This needs to be taken into consideration as we split and analyse the time series part of the dataset. 
+* It is a rather big dataset overall, with over 400 000 datapoints, but it is still only from a time perspective 3 years. It would be beneficial to have more data in order to verify the regressions results over not only these years, but longer time frames. But as this is what we have to work with, we will simply take this into consideration when we dive deeper into the analyis.  
 
 
 ### Exploratory Visualization
