@@ -150,13 +150,13 @@ The date feature keeps the data in alignment so we compare the correct datapoint
 The reason for including the temperature in this analysis is to see if perhaps we can find a postitive or negative relationship between how much people buy depending on how warm it is that week. For example it could be that on extremely hot weeks, people only buy a limited amount of products which relate to simply making handle the warmth itself. Thereby only buying ice cream. However, with the Data Scientist, Machine Learning Engineer or good old fashioned atatistician approach: we never assume, we test and find statistical significant measurments that indicate as such before any assumptions are made. 
 
 ##### Fuel_Price - cost of fuel in the region
-This feature of cost of fuel in the region In a theoretical sense
+This feature of cost of fuel in the region will be tested in a similar sense as the "temperature" feature meentioned above. For example it could theeoretically be the case that people don't go to walmart if the fuel price is getting to high as for some the transportation cost might be more. In a sense, this seems unlikely as it seems like walmart is a store you can travel longer distances as you'll still "save" money with the overall low prices they provide on their products. Still, this needs to be tested to verify our hypothesis. 
 
 ##### MarkDown1-5 - anonymized data related to promotional markdowns. 
-
-MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
+This is a pretty straight forward one. Walmart has used 5 different promitional markdowns, we will analyse to see which ones were beneficial for the company and which ones did not assist in sales. The fundamentally inteeresting part about this is that we don't know anything about the promotions by themselves and how theey were executed, instead we will only analyse the data and put no emitions or opinion into the equation of evaluating each promotional markdown. 
 
 ##### CPI - the consumer price index
+
 
 ##### Unemployment - the unemployment rate
 
