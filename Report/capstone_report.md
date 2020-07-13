@@ -217,15 +217,15 @@ Anonymized information about the 45 stores, indicating the type and size of stor
   - _Is the visualization thoroughly analyzed and discussed?_
   - _If a plot is provided, are the axes, title, and datum clearly defined?_
 
-  _______
+_______
 
   #### General Plot for features
 
 Before heading down the rabbithole of I prefer to get a general overview of features, which I find difficult if it's one graph by itself. Therefore I used the subplots=True function in matplotlib to get a general sense of the data, and most importantly: ***seeing them in the same timeframe***. In this way we can get a general grip on if there is a certain way we should look at specific features and how they have been used or acted over the given weeks.
 
-   
+![sales](features_graph.png)
 
-  ![features](features_graph.png)
+  
 
   #### Insights from the graph
 
@@ -241,25 +241,39 @@ Before heading down the rabbithole of I prefer to get a general overview of feat
 
 Here we simply plotted the weekly sales over the time period to gain insights of possible seasonality, or general positive / negative trends in sales.
 
-![features](features_graph.png)
+![sales](sales.png)
+
+#### Insights
 
   - **Seasonality - \*High-Point\***: It seems there are some seasonality to our data, where the end of December seems like a popular time to buy our company's specific products. Hy theory is that this has to do with the holidays and people buy gifts for each other, which seems reasonable.
   - **Seasonality - \*Low-Point\***: Around the end of january it seems to be a pretty steep dip in the different stores sales both during 2011 and 2012.
 
   #### Correlation Heat Map
 
-  
+The correlation heat map gives us a general overview of the correlation between the different features presented in the dataset. 
+
+**Notes:** To verify that the dummy variables were set up correctly I included them in the correlation table below. The different types of stores and the different months are from an analysis perspective to be ignored. 
+
+![heat](corr_heatmap.png)
+
+#### Insights
+
+* We can see that the different correlations are not that significant (ignoring the dummy variables and the MarkDowns being correlated to each other).
+* For a more clear and important overview to get to our final model, we can see that we need to specifically see the correlation between ***Weekly_Sales*** and the other features to find out what is important when we predict future sales. 
+* In order to do this, we continue the plotting with a correlation plot with the sales being the constant feature against each other feature. 
 
   #### Correlation Plot
 
-  
+In order to analyse the correlations of sales we use the bar chart from matplotlib to be able to get a quick overview of what correlates with the weekly sales at Walmart, given the set of features in the dataset. 
 
-  The correlation table and graph indicate a few things:
+![features](corr_plot.png)
 
-  - **MarkDowns**: Not that significant in terms of weekly sales
+#### Key Insights
+
+  - **MarkDowns**: Not that significant in terms of weekly sales from what we might initially expect, but it's still showing a positive correlation. This indicates that their promotional efforts seems to bring in revenue, but not to as a large scale as other parameters such as size. 
   - **Size**: Highest correlation of all, telling us that having a larger store = more sales. Only thing to notice is that this could imply that having larger stores will automatically increase revenues, but it could be linked to the location and being situated where a lot of people are, and therefore it results in higher revenue. In short, we can apply the old saying "Correlation is not causation". But it will b
-  - **Type**: Type_A seems to have a positive correlation with the
-  - **Department**: Positive correlation with sales as well.
+  - **Type**: Type_A have a positive correlation with the weekly sales. As we have not been given the information of what type of store there are, we can only extract that being the Type A store, it will have a positive correlation with the weekly sales. 
+  - **Department**: We find a positive correlation with sales as well. In a similar fashion to the type of store, we don't know the specific details of what these departments are. But we should note that they are correlated positively with weekly sales. 
 
   
 
@@ -274,19 +288,58 @@ Here we simply plotted the weekly sales over the time period to gain insights of
 
   **Olle**
 
-  
+![ML](https://www.kth.se/polopoly_fs/1.862339.1554801965!/image/startpuff-avdelning_matematisk%20statistik.jpg)
+
+#### What kind of problem are we dealing with?
+
+With the different features sets provided, we want to see if we can extract the useful information from these features to predict a nominal value, in this case the future sales. Therefore, this shall be classified as a ***Regression problem*** where we have the "Weekly_Sales" to be the dependent variable we are trying to predict, and the other features will be our independent variables.
+
+#### What models should we consider? 
+
+As we try to predict a nominal number we move away from models such as logistical regressions and consider other models such as linear regressions. However, the overall data seems to indicate that there is **not**  linearity in this dataset. My hypothesis therefore become that a linear regression model would **not** be optimal here. But to be sure, we will include two linear model to verify our hyptothesis.
+
+##### The models we chose to take a look are as follows:
+
+* **Linear Regression** (Linear model) - Classic old statistical model that has been a common model to use in Machine Learning. We are as before including this to verify our hypothesis of this not being a linear problem to solve. 
+* **KNeighborsRegressor** (KNN) (neighbors model) -  KNN is a model that can be used for both classification and regression predictive problems (analyticsvidhya, 2019). It is widely used for forecasting in academia and studies (Zhang, Liu, Yang, Wei, & Dong, 2013), which is why we chose to include it in this project. 
+* **Decision Tree Regressor** (Tree model) - This model is used to fit a sine curve with addition noisy observation. Thereby it learn local linear regressions instead of pure linear regression for the overall data (scikit-learn.org, 2019), which should in theory work better for our dataset than regular linear regression models.
+* **Random Forest Regressor** (Enemble model) - The RFR ensamble model is one of the more popular machine learning models due to its good or even excellent performance across both classification and regression predictive problems (Brownlee, 2020). Due to it's popularity and positive feedback from the machine learning engineer community, we include it in our samples of models. 
+* **Extra Trees Regressor** (Ensemble model) - Expanding on the ensemble models such as the Random Forest Regressor above, we are now considering the Extra Trees Regressor. This is because it is a widely used random forest algorithms and can often as-good or sometimes even better performance than the random forest algorithm, while using simpler algortihms for processing (Brownlee, 2020b). With these reasons, we find it as an obvious choise to include for our sales forecasting problem.
+* **XGBoost** (gradient boosted decision trees) - The go-to model for many kaggle competition competitors, XGboost has been over the year become a fan favorite due to the accuracy it provides, while being consistently fast (analyticsvidhya, 2018). Therefore we will include XGboost in our model-arcenal. 
+* **Ridge** (Linear model) - This is another linear model we will apply to test our hyptohesis of this dataset not having purely a linear linear problem to deal with.
+* **Lasso** (Linear model) - Same as above, a linear model we will apply to test our hyptohesis of this dataset not having purely a linear linear problem to deal with.
 
 
   ### Benchmark
 
-  In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
+In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
 
   - _Has some result or value been provided that acts as a benchmark for measuring performance?_
   - _Is it clear how this result or value was obtained (whether by data or by hypothesis)?_
 
   **Olle**
 
-  
+**How will we choose the optimal model before the final benchmark?**
+
+* The initial benchmarking will be made by looking at three different metrics we have mentioned earlier to determine accuracy by calculating the estimation errors, as well as one statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model, which will tell us the robustness of our models. These are: 
+
+**Error Metrics:**
+1. Mean Absolute Error (MAE)
+2. Mean Sqared Error (MSE)
+3. Root Mean Squared Error (RMSE)
+
+**Model Valuation Metric *(robustness of the model):***
+
+1. R-squared (R^2)
+
+### Final Comparison Benchmark
+
+The final benchmark after selecting our best model will be to use it and compare it to roughly the 50th percentile score of the Walmart Kaggle Competition the data has originated from, which seems to be around **4000 points** on the kaggle leaderboards. You'll find the link to the scoreboard [here](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting/leaderboard).  A competitor close to this score that we will try to beat is "Hari Khanal", with the score of **3985.79966**.
+
+* **GOAL:** Get a lower score than Hari. 
+* The lower the score, the better the prediction.
+
+______
 
 
   ## III. Methodology
@@ -295,244 +348,45 @@ Here we simply plotted the weekly sales over the time period to gain insights of
 
   ### Data Preprocessing
 
-  In this section, all of your preprocessing steps will need to be clearly documented, if any were necessary. From the previous section, any of the abnormalities or characteristics that you identified about the dataset will be addressed and corrected here. Questions to ask yourself when writing this section:
+In this section, all of your preprocessing steps will need to be clearly documented, if any were necessary. From the previous section, any of the abnormalities or characteristics that you identified about the dataset will be addressed and corrected here. Questions to ask yourself when writing this section:
 
   - _If the algorithms chosen require preprocessing steps like feature selection or feature transformations, have they been properly documented?_
   - _Based on the **Data Exploration** section, if there were abnormalities or characteristics that needed to be addressed, have they been properly corrected?_
   - _If no preprocessing is needed, has it been made clear why?_
 
-  **Olle**
+**Olle**
 
-  
+#### Preprocessing steps
 
-  ### Implementation
+For each feature we will verify if they are ok as they are provided, or if some feature engineering was needed in order to use them in our machine learning algortithms. 
 
-  In this section, the process for which metrics, algorithms, and techniques that you implemented for the given data will need to be clearly documented. It should be abundantly clear how the implementation was carried out, and discussion should be made regarding any complications that occurred during this process. Questions to ask yourself when writing this section:
+##### Features 
 
-  - _Is it made clear how the algorithms and techniques were implemented with the given datasets or input data?_
-  - _Were there any complications with the original metrics or techniques that required changing prior to acquiring a solution?_
-  - _Was there any part of the coding process (e.g., writing complicated functions) that should be documented?_
+- **Store** (the store number) - This is correctly formatted from the original dataset provided by Walmart. 
+- **Dept** (the department number) - This is correctly formatted from the original dataset provided by Walmart. 
+- **Date** - This needed to be formatted into a date format in order to merge the datasets correctly. Here we used *datetime* function in Python seen in the jupyter notebook. 
+- **Temperature** (average temperature in the region) - 
+- **Fuel_Price** (cost of fuel in the region) - 
+- **MarkDown1-5** - anonymized data related to promotional markdowns. MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
+- **CPI** - the consumer price index
+- **Unemployment** (the unemployment rate) - 
+- **IsHoliday** (whether the week is a special holiday week) - 
 
-  **Olle**
+- **Weekly_Sales** (sales for the given department in the given store) - 
+- **IsHoliday** (whether the week is a special holiday week) - 
 
-  
+- **The store number** (anonomised) - 
+- **Type** - 
+- **Size** - 
 
-  ### Refinement
 
-  In this section, you will need to discuss the process of improvement you made upon the algorithms and techniques you used in your implementation. For example, adjusting parameters for certain models to acquire improved solutions would fall under the refinement category. Your initial and final solutions should be reported, as well as any significant intermediate results as necessary. Questions to ask yourself when writing this section:
 
-  - _Has an initial solution been found and clearly reported?_
-  - _Is the process of improvement clearly documented, such as what techniques were used?_
-  - _Are intermediate and final solutions clearly reported as the process is improved?_
+##### Fixing Abnormalities & Characteristics
 
-  **Olle**
+* There were multiple NaN values that needed to be dealt with for different features. For this we used a few different ways of dealing with them, explained below.
+  * d
 
-  
 
-
-  ## IV. Results
-
-  _(approx. 2-3 pages)_
-
-  ### Model Evaluation and Validation
-
-  In this section, the final model and any supporting qualities should be evaluated in detail. It should be clear how the final model was derived and why this model was chosen. In addition, some type of analysis should be used to validate the robustness of this model and its solution, such as manipulating the input data or environment to see how the model’s solution is affected (this is called sensitivity analysis). Questions to ask yourself when writing this section:
-
-  - _Is the final model reasonable and aligning with solution expectations? Are the final parameters of the model appropriate?_
-  - _Has the final model been tested with various inputs to evaluate whether the model generalizes well to unseen data?_
-  - _Is the model robust enough for the problem? Do small perturbations (changes) in training data or the input space greatly affect the results?_
-  - _Can results found from the model be trusted?_
-
-  **Olle**
-
-  
-
-  ### Justification
-
-  In this section, your model’s final solution and its results should be compared to the benchmark you established earlier in the project using some type of statistical analysis. You should also justify whether these results and the solution are significant enough to have solved the problem posed in the project. Questions to ask yourself when writing this section:
-
-  - _Are the final results found stronger than the benchmark result reported earlier?_
-  - _Have you thoroughly analyzed and discussed the final solution?_
-  - _Is the final solution significant enough to have solved the problem?_
-
-  **Olle**
-
-  
-
-
-  ## V. Conclusion
-
-  _(approx. 1-2 pages)_
-
-  ### Free-Form Visualization
-
-  In this section, you will need to provide some form of visualization that emphasizes an important quality about the project. It is much more free-form, but should reasonably support a significant result or characteristic about the problem that you want to discuss. Questions to ask yourself when writing this section:
-
-  - _Have you visualized a relevant or important quality about the problem, dataset, input data, or results?_
-  - _Is the visualization thoroughly analyzed and discussed?_
-  - _If a plot is provided, are the axes, title, and datum clearly defined?_
-
-  **Olle**
-
-  
-
-  ### Reflection
-
-  In this section, you will summarize the entire end-to-end problem solution and discuss one or two particular aspects of the project you found interesting or difficult. You are expected to reflect on the project as a whole to show that you have a firm understanding of the entire process employed in your work. Questions to ask yourself when writing this section:
-
-  - _Have you thoroughly summarized the entire process you used for this project?_
-  - _Were there any interesting aspects of the project?_
-  - _Were there any difficult aspects of the project?_
-  - _Does the final model and solution fit your expectations for the problem, and should it be used in a general setting to solve these types of problems?_
-
-  **Olle**
-
-  
-
-  ### Improvement
-
-  In this section, you will need to provide discussion as to how one aspect of the implementation you designed could be improved. As an example, consider ways your implementation can be made more general, and what would need to be modified. You do not need to make this improvement, but the potential solutions resulting from these changes are considered and compared/contrasted to your current solution. Questions to ask yourself when writing this section:
-
-  - _Are there further improvements that could be made on the algorithms or techniques you used in this project?_
-  - _Were there algorithms or techniques you researched that you did not know how to implement, but would consider using if you knew how?_
-  - _If you used your final solution as the new benchmark, do you think an even better solution exists?_
-
-  **Olle**
->>>>>>> 168b3d7ee5dab596c27610c63baf8f07aa239ed5
-
-  The reason for including the temperature in this analysis is to see if perhaps we can find a postitive or negative relationship between how much people buy depending on how warm it is that week. For example it could be that on extremely hot weeks, people only buy a limited amount of products which relate to simply making handle the warmth itself. Thereby only buying ice cream. However, with the Data Scientist, Machine Learning Engineer or good old fashioned atatistician approach: we never assume, we test and find statistical significant measurments that indicate as such before any assumptions are made. 
-
-  ##### Fuel_Price - cost of fuel in the region
-
-<<<<<<< HEAD
-  This feature of cost of fuel in the region will be tested in a similar sense as the "temperature" feature meentioned above. For example it could theeoretically be the case that people don't go to walmart if the fuel price is getting to high as for some the transportation cost might be more. In a sense, this seems unlikely as it seems like walmart is a store you can travel longer distances as you'll still "save" money with the overall low prices they provide on their products. Still, this needs to be tested to verify our hypothesis. 
-
-  ##### MarkDown1-5 - anonymized data related to promotional markdowns. 
-
-  This is a pretty straight forward one. Walmart has used 5 different promitional markdowns, we will analyse to see which ones were beneficial for the company and which ones did not assist in sales. The fundamentally inteeresting part about this is that we don't know anything about the promotions by themselves and how theey were executed, instead we will only analyse the data and put no emitions or opinion into the equation of evaluating each promotional markdown. 
-
-  ##### CPI - the consumer price index
-
-  The CPI measures the average price trend for the entire private domestic consumption based on prices consumers actually pay. This can potentially be used for identifying trends to assist in the overall predicitons, but we must test this. 
-
-  ##### Unemployment - the unemployment rate
-
-  The idea of Walmart including the unemployment rate is a nice idea. It could the case that with fewer people unemployed, the more money they have, therefore more money can be spent on walmarts products. But it could also be the case that with a high unemployment, people tends to go to target as they have a lower pricing strategy than their competitiors where people will by their essentials at Walmart instead of a more expenisve local store for example. Meaning: as it can be both or eiter or non of these options, this needs to be tested before any assumptions are made. 
-
-  ##### IsHoliday - whether the week is a special holiday week
-
-  This will help to identify when a special occasion occurs where sales might be higher than usual, where it should not affect the overall model and should be interpreted more as more consistent and predictable outliers. 
-
-  ##### Dept - the department number
-
-  Similar to the store feature, some departments might have overall higher sales. As this is could be the case, we need to identify if there are such trends which can help us to predicit future demand of a certain department. 
-
-  ##### Weekly_Sales 
-
-  The overall sales for the given department in the given store. This will be our dependent variable in this analysis as our target is to predicit future weekly sales.
-
-  ##### The store number (anonomised) 
-
-  Anonymized information about the 45 stores, indicating the type and size of store. 
-
-
-  #### Abnormalities or Characteristics of the Data
-
-  * MarkDown data is only available after Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA.
-  * The test data is not through a full year, but instead it starts in november and ends in july. This needs to be taken into consideration as we split and analyse the time series part of the dataset. 
-  * It is a rather big dataset overall, with over 400 000 datapoints, but it is still only from a time perspective 3 years. It would be beneficial to have more data in order to verify the regressions results over not only these years, but longer time frames. But as this is what we have to work with, we will simply take this into consideration when we dive deeper into the analyis.  
-
-
-  ### Exploratory Visualization
-
-  In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
-
-  - _Have you visualized a relevant characteristic or feature about the dataset or input data?_
-  - _Is the visualization thoroughly analyzed and discussed?_
-  - _If a plot is provided, are the axes, title, and datum clearly defined?_
-
-  
-
-  #### General Plot for features
-
-  I prefer to get a general overview of features, which I find difficult if it's one graph by itself. Therefore I used the subplots=True fucntion in matplotlib to get a general sense of the data, and most importantly: ***seeing them in the same timeframe***. 
-
-   
-
-  ![features](/Users/Olle/Documents/GitHub/Retail_Demand_Predictions/features_graph.png)
-
-  
-
-  - **Discounts**: We have a few spikes, but not too many to make assumptions of the affects of it. It seems like the discounts are a more recent thing appearing in the end of 2011 with the exception of the potential test of 2011-02 where we find a small bump on all discount levels.
-  - **Temperature**: it seems like it is decently seasonal, which sounds reasonable when we talk about temperature on a YoY basis.
-  - **Fuel Price**: Seems to have a slight positive trend.
-  - **Unemployment**: Seems to have a slight negative trend over this timeframe.
-
-  #### Weekly Sales Plot
-
-  We use this to see if there are concrete trends. 
-
-  - **Seasonality - \*High-Point\***: It seems there are some seasonality to our data, where the end of December seems like a popular time to buy our company's specific products. Hy theory is that this has to do with the holidays and people buy gifts for each other, which seems reasonable.
-  - **Seasonality - \*Low-Point\***: Around the end of january it seems to be a pretty steep dip in the different stores sales both during 2011 and 2012.
-
-  #### Correlation Heat Map
-
-  
-
-  #### Correlation Plot
-
-  
-
-  The correlation table and graph indicate a few things:
-
-  - **MarkDowns**: Not that significant in terms of weekly sales
-  - **Size**: Highest correlation of all, telling us that having a larger store = more sales. Only thing to notice is that this could imply that having larger stores will automatically increase revenues, but it could be linked to the location and being situated where a lot of people are, and therefore it results in higher revenue. In short, we can apply the old saying "Correlation is not causation". But it will b
-  - **Type**: Type_A seems to have a positive correlation with the
-  - **Department**: Positive correlation with sales as well.
-
-  
-
-
-  ### Algorithms and Techniques
-
-  In this section, you will need to discuss the algorithms and techniques you intend to use for solving the problem. You should justify the use of each one based on the characteristics of the problem and the problem domain. Questions to ask yourself when writing this section:
-
-  - _Are the algorithms you will use, including any default variables/parameters in the project clearly defined?_
-  - _Are the techniques to be used thoroughly discussed and justified?_
-  - _Is it made clear how the input data or datasets will be handled by the algorithms and techniques chosen?_
-
-  **Olle**
-
-  
-
-
-  ### Benchmark
-
-  In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
-
-  - _Has some result or value been provided that acts as a benchmark for measuring performance?_
-  - _Is it clear how this result or value was obtained (whether by data or by hypothesis)?_
-
-  **Olle**
-
-  
-
-
-  ## III. Methodology
-
-  _(approx. 3-5 pages)_
-
-  ### Data Preprocessing
-
-  In this section, all of your preprocessing steps will need to be clearly documented, if any were necessary. From the previous section, any of the abnormalities or characteristics that you identified about the dataset will be addressed and corrected here. Questions to ask yourself when writing this section:
-
-  - _If the algorithms chosen require preprocessing steps like feature selection or feature transformations, have they been properly documented?_
-  - _Based on the **Data Exploration** section, if there were abnormalities or characteristics that needed to be addressed, have they been properly corrected?_
-  - _If no preprocessing is needed, has it been made clear why?_
-
-  **Olle**
-
-  
 
   ### Implementation
 
@@ -629,18 +483,13 @@ Here we simply plotted the weekly sales over the time period to gain insights of
   **Olle**
 
 
------------
 
-  **Before submitting, ask yourself. . .**
+## Before submission, ask the following: 
 
-=======
-  **Before submitting, ask yourself. . .**
-
->>>>>>> 168b3d7ee5dab596c27610c63baf8f07aa239ed5
-  - Does the project report you’ve written follow a well-organized structure similar to that of the project template? **Answer:**  
-  - Is each section (particularly **Analysis** and **Methodology**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification? **Answer:**  
-  - Would the intended audience of your project be able to understand your analysis, methods, and results? **Answer:**  
-  - Have you properly proof-read your project report to assure there are minimal grammatical and spelling mistakes? **Answer:**  
-  - Are all the resources used for this project correctly cited and referenced? **Answer:**  
-  - Is the code that implements your solution easily readable and properly commented? **Answer:**  
-  - Does the code execute without error and produce results similar to those reported? **Answer:**  
+- Does the project report you’ve written follow a well-organized structure similar to that of the project template? **Answer:**
+- Is each section (particularly **Analysis** and **Methodology**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification? **Answer:**
+- Would the intended audience of your project be able to understand your analysis, methods, and results? **Answer:**
+- Have you properly proof-read your project report to assure there are minimal grammatical and spelling mistakes? **Answer:**
+- Are all the resources used for this project correctly cited and referenced? **Answer:**
+- Is the code that implements your solution easily readable and properly commented? **Answer:**
+- Does the code execute without error and produce results similar to those reported? **Answer:**
