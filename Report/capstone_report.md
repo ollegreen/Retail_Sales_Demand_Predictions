@@ -228,7 +228,7 @@
 
    
 
-  ![features](/Users/Olle/Documents/GitHub/Retail_Demand_Predictions/features_graph.png)
+  ![features](features_graph.png)
 
   
 
@@ -627,7 +627,7 @@
   **Olle**
 
 
-  -----------
+-----------
 
   **Before submitting, ask yourself. . .**
 
