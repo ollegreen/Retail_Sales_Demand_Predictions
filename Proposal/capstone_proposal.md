@@ -10,9 +10,6 @@ July 5th, 2020
 
 ### Domain Background
 
-MLR vs NNs https://www.hindawi.com/journals/mpe/2019/7620948/
-
-Demand predictions in supply chain managagemnt (SCM) and logistics have historically been a constant pressure to make them more precise (Thomas & Griffin, 1996). The reason for this is due to the fact that inaccurate forecasting results in either too low supply to fulfill the current market demand, or too much, which in turn results in increased holding costs from inventory. Common ways to predict demand in SCM have been statistical models such as the ARIMA model (Jaipuria & Mahapatra, 2014). Academic articles have tested and noted that more advanced neural networks does not show a statistically significant improvement over traditional statistical models such as Moving Average and ARIMA (Shukla & Jharkharia, 2011). 
 
 The key area of interest is: As an organisation grow larger, the more vital the precision in these predicitons become. Therefore, we will explore the possibility to utilise Machine Learning algorithms to predict the demand of certain products, in order for the SCM-team to make better planning for instance purchasing product components for an upcoming season. 
 
@@ -23,11 +20,8 @@ The problem organisations SCM-departments face is that inaccurate forecasting fo
 ### Datasets and Inputs
 
 We will use the dataset provided by Manjeet Singh on Kaggle.com "Retail Data Analytics
-Historical sales data from 45 stores" [link](https://www.kaggle.com/manjeetsingh/retaildataset). We are provided with historical sales data for 45 stores located in different regions - each store contains a number of departments. The company also runs several promotional markdown events throughout the year. These markdowns precede prominent holidays, the four largest of which are the Super Bowl, Labor Day, Thanksgiving, and Christmas. The weeks including these holidays are weighted five times higher in the evaluation than non-holiday weeks. 
 
-In the dataset we find three separate files: Features, Sales and Stores
 
-#### 1. Features data set.csv
 
 Contains data related to the store, department, and regional activity for the given dates.
 
@@ -41,9 +35,7 @@ Contains data related to the store, department, and regional activity for the gi
 * IsHoliday - whether the week is a special holiday week
 * Sales
 
-#### 2. sales data-set.csv
 
-Historical sales data, which covers to 2010-02-05 to 2012-11-01. Within this tab you will find the following fields:
 
 * Store - the store number
 * Dept - the department number
@@ -52,7 +44,6 @@ Historical sales data, which covers to 2010-02-05 to 2012-11-01. Within this tab
 * IsHoliday - whether the week is a special holiday week
 
 
-#### 3. stores data-set.csv
 
 Anonymized information about the 45 stores, indicating the type and size of store. 
 
@@ -63,37 +54,27 @@ Anonymized information about the 45 stores, indicating the type and size of stor
 #### Size of total dataset 
 
 The different files containts the following amount of data: 
-* Features data set.csv - 182 rows, 12 columns
-* sales data-set.csv - 143 rows, 5 columns 
-* Stores data-set.csv - 45 rows, 3 columns
 
 #### How will we work with these files 
 
-From my inital analysis, we will try to at least merge the features and sales data-set to find potentially find ways to utilise the data to improve our forecast. Some dates seems to be missing for the sales data vs the features data, but we will address that as we move on with the analysis to find the best forecast method.  
 
 ### Solution Statement
 
-How we would solve this problem is to test the hypothesis of Neural Networks providing a better prediction compared to classical statistical models, such as the moving average. We will do this through analysing the historical patterns in combination with the added features mentioned to predict how tomorrows demand will look like. 
 
 
 ### Benchmark Model
 
-The initial benchmark model will be a moving average model as it is a simple and computationally inexpensive model and/or potentially the ARIMA model (Shukla & Jharkharia, 2011), and use that prediction score as a benchmark when we compare it to our machine learning algortihm. 
-
 
 ### Evaluation Metrics
 
-Ways to evalute the different models could include 1-3 of the following statistical measures of how accurate a forecast system is;
 
 * mean squared error (MSE) - measures the average of the squares of the errors 
 * Root Mean Squared Error (RMSE) - the square root of the variance, known as the standard error
-* Mean Absolute Percentage Error (MAPE) - measures the average of the absolute mean percentage error between the forecast and the actual demand for a specific time 
 
 ![Formulas](https://i.stack.imgur.com/83BUy.png)
 
 All of which will help us to assess which models are providing us with the better demand forecast model. The smaller the number is (closer to 0), the better. 
 
-### Project Design
 
 1. To start we will set up a notebook instance and set up the training, validation and test data. 
 2. Then we will proceed to visualise the data to get a better grip of what it looks like and how the different categorical data could be helping in the predictive demand forecasting model. In this part, we will include a correlation heat map, to understand how the data affect each other. Similar to the one attached: ![Correlation heatmap](https://i.stack.imgur.com/Lh8tv.png)
