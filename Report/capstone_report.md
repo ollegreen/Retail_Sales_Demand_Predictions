@@ -141,12 +141,16 @@ IMAGE OF HEAEDER WITH COLUMNS.
 The different features are as follows: 
 
 ##### Store - the store number
+This feature will be used for linking each other feature to the parent store to see if any linkage is find such as size etc. 
 
 ##### Date - the week
+The date feature keeps the data in alignment so we compare the correct datapoints to eachother. However, we must note that it is very common that dates are in a string format, which was the case here, where we would change the data type into datetype format (Python Software Foundation, 2002) to handle the complex nature of dates and time. 
 
 ##### Temperature - average temperature in the region
+The reason for including the temperature in this analysis is to see if perhaps we can find a postitive or negative relationship between how much people buy depending on how warm it is that week. For example it could be that on extremely hot weeks, people only buy a limited amount of products which relate to simply making handle the warmth itself. Thereby only buying ice cream. However, with the Data Scientist, Machine Learning Engineer or good old fashioned atatistician approach: we never assume, we test and find statistical significant measurments that indicate as such before any assumptions are made. 
 
 ##### Fuel_Price - cost of fuel in the region
+This feature of cost of fuel in the region In a theoretical sense
 
 ##### MarkDown1-5 - anonymized data related to promotional markdowns. 
 
