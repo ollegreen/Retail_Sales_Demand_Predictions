@@ -14,38 +14,37 @@
 
   ### Project Overview
 
-  In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
-
-  - _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
-  - _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
-
-  **Olle**
-
   #### Problem domain
 
   Being a Master student in Operations Management at Stockholm University, the academic litterature has showed that the supply chain is an important part of orgnsations, that not many might know is facing some difficult pressures. As mentioned in the propsal, demand predictions in supply chain managagemnt (SCM) and logistics have historically been a constant pressure to make them more precise (Thomas & Griffin, 1996). The reason for this is due to the fact that inaccurate forecasting results in either too low supply to fulfill the current market demand, or too much, which in turn results in increased holding costs from inventory. Common ways to predict demand in SCM have been statistical models such as the ARIMA model (Jaipuria & Mahapatra, 2014). Academic articles have also tested different modern machine learning algorithms such as XGboost and compared them to more classical linear regressions (Vanichrujee, Horanont, Pattara-atikom, Theeramunkong, & Shinozaki, 2018). This is still a new concept of using more advanced machine learning algorithms to predict demand over classical statistical models such as linear regressions, which is a domain we would like to explore further in this project.
+  
+The key area of interest is: As an organisation grow larger, the more vital the precision in these predicitons become. Therefore, we will explore the possibility to utilise Machine Learning algorithms to predict the demand of certain products, in order for the SCM-team to make better planning for instance purchasing product components for an upcoming season. 
+  
+In this case, we will take a look at Walmart, the largest retailer in the US and use their data, which has been provided on kaggle.com in order to predict future demand of their sales. 
+  
 
-  The key area of interest is: As an organisation grow larger, the more vital the precision in these predicitons become. Therefore, we will explore the possibility to utilise Machine Learning algorithms to predict the demand of certain products, in order for the SCM-team to make better planning for instance purchasing product components for an upcoming season. 
+  
+#### Problem origin
+  
+The broader demand forecasting prediciton problem has been studied for decades by academics and professionals (Suganthi & Samuel, 2012), however the the utlisation of Machine Learning algortihms for this purpose is a more recent phenomenon that academics still explore to this date (Carbonneau, Laframboise, & Vahidov, 2008) (Law, 2000). 
+  
+This specific demand forecasting problem for Walmart originated from kaggle.com and their demand forecasting predicition competition. See link to the competition [here](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting/overview). 
+  
+As we have the opportunity to utilise more modern algorithms, we would like to test how good results we can get from these compared to what the general forecaster uses. The general forecaster in this case will be the user "Hari Khanal" on the kaggle competition leaderboards for the Walmart competition, with a prediction score of 3985.79966. Why we chose Hari is because he is close to the median score out of 700 competitors for the Walmart competition. 
+  
 
-  In this case, we will take a look at Walmart, the largest retailer in the US and use their data, which has been provided on kaggle.com in order to predict future demand of their sales. 
+  
+#### Related data sets or input data
+  
+The data used for this report was given in the kaggle competition by Walmart, which is as follows; 
+  
 
-  #### Problem origin
-
-  The broader demand forecasting prediciton problem has been studied for decades by academics and professionals (Suganthi & Samuel, 2012), however the the utlisation of Machine Learning algortihms for this purpose is a more recent phenomenon that academics still explore to this date (Carbonneau, Laframboise, & Vahidov, 2008) (Law, 2000). 
-
-  This specific demand forecasting problem for Walmart originated from kaggle.com and their demand forecasting predicition competition. See link to the competition [here](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting/overview). 
-
-  As we have the opportunity to utilise more modern algorithms, we would like to test how good results we can get from these compared to what the general forecaster uses. The general forecaster in this case will be the user "Hari Khanal" on the kaggle competition leaderboards for the Walmart competition, with a prediction score of 3985.79966. Why we chose Hari is because he is close to the median score out of 700 competitors for the Walmart competition. 
-
-  #### Related data sets or input data
-
-  The data used for this report was given in the kaggle competition by Walmart, which is as follows; 
-
-  ##### 1. features.csv
-
-  Contains data related to the store, department, and regional activity for the given dates.
-
-  * Store - the store number
+  
+##### 1. features.csv
+  
+Contains data related to the store, department, and regional activity for the given dates.
+  
+* Store - the store number
   * Date - the week
   * Temperature - average temperature in the region
   * Fuel_Price - cost of fuel in the region
@@ -53,41 +52,43 @@
   * CPI - the consumer price index
   * Unemployment - the unemployment rate
   * IsHoliday - whether the week is a special holiday week
+  
 
-  ##### 2. train.csv
-
-  Historical sales data used for training. Within this tab you will find the following fields:
-
+  
+##### 2. train.csv
+  
+Historical sales data used for training. Within this tab you will find the following fields:
+  
   * Store - the store number
   * Dept - the department number
   * Date - the week
   * Weekly_Sales -  sales for the given department in the given store
-  * IsHoliday - whether the week is a special holiday week
+* IsHoliday - whether the week is a special holiday week
+  
 
-  ##### 3. test.csv
+  
+##### 3. test.csv
+  
+Same as train.csv in terms of columns, but instead we don't find the "Weekly_Sales", as this will be our dependent variable we will try to predict future sales in the final submission for the kaggle competition.
+  
 
-  Same as train.csv in terms of columns, but instead we don't find the "Weekly_Sales", as this will be our dependent variable we will try to predict future sales in the final submission for the kaggle competition.
-
+  
   ##### 4. stores.csv
-
-  Anonymized information about the 45 stores, indicating the type and size of store. 
-
-  * The store number (anonomised) 
+  
+Anonymized information about the 45 stores, indicating the type and size of store. 
+  
+* The store number (anonomised) 
   * Type 
   * Size
-
-  ##### Note:
-
-  Currently given the data provided in the competition, we do not have any other related data sets or input data that we could or should utilise, to be in alignment with the competition rules at kaggle.com. 
+  
+  
+  
+  **Note:** Currently given the data provided in the competition, we do not have any other related data sets or input data that we could or should utilise, to be in alignment with the competition rules at kaggle.com. 
+  
+  
 
 
   ### Problem Statement
-
-In this section, you will want to clearly define the problem that you are trying to solve, including the strategy (outline of tasks) you will use to achieve the desired solution. You should also thoroughly discuss what the intended solution will be for this problem. Questions to ask yourself when writing this section:
-
-  - _Is the problem statement clearly defined? Will the reader understand what you are expecting to solve?_
-  - _Have you thoroughly discussed how you will attempt to solve the problem?_
-  - _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
 
   #### What will we solve
 
@@ -138,21 +139,7 @@ All of these accuracy and robustness metrics will help us to assess which models
 
   ## II. Analysis
 
-  _(approx. 2-4 pages)_
-
   ### Data Exploration
-
-In this section, you will be expected to analyze the data you are using for the problem. This data can either be in the form of a dataset (or datasets), input data (or input files), or even an environment. The type of data should be thoroughly described and, if possible, have basic statistics and information presented (such as discussion of input features or defining characteristics about the input or environment). Any abnormalities or interesting qualities about the data that may need to be addressed have been identified (such as features that need to be transformed or the possibility of outliers). Questions to ask yourself when writing this section:
-
-  - _If a dataset is present for this problem, have you thoroughly discussed certain features about the dataset? Has a data sample been provided to the reader?_
-
-  - _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
-
-  - _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
-
-  - _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
-
-  **Olle**
 
   #### Features discussion
 
@@ -160,7 +147,7 @@ The features of the dataset was provided by Walmart for their Kaggle competition
 
   ##### Store - the store number
 
-  This feature will be used for linking each other feature to the parent store to see if any linkage is find such as size etc. 
+This feature will be used for linking each other feature to the parent store to see if any linkage is find such as size etc. 
 
   ##### Date - the week
 
@@ -280,14 +267,6 @@ In order to analyse the correlations of sales we use the bar chart from matplotl
 
   ### Algorithms and Techniques
 
-  In this section, you will need to discuss the algorithms and techniques you intend to use for solving the problem. You should justify the use of each one based on the characteristics of the problem and the problem domain. Questions to ask yourself when writing this section:
-
-  - _Are the algorithms you will use, including any default variables/parameters in the project clearly defined?_
-  - _Are the techniques to be used thoroughly discussed and justified?_
-  - _Is it made clear how the input data or datasets will be handled by the algorithms and techniques chosen?_
-
-  **Olle**
-
 ![ML](https://www.kth.se/polopoly_fs/1.862339.1554801965!/image/startpuff-avdelning_matematisk%20statistik.jpg)
 
 #### What kind of problem are we dealing with?
@@ -310,14 +289,9 @@ As we try to predict a nominal number we move away from models such as logistica
 * **Lasso** (Linear model) - Same as above, a linear model we will apply to test our hyptohesis of this dataset not having purely a linear linear problem to deal with.
 
 
+
+
   ### Benchmark
-
-In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
-
-  - _Has some result or value been provided that acts as a benchmark for measuring performance?_
-  - _Is it clear how this result or value was obtained (whether by data or by hypothesis)?_
-
-  **Olle**
 
 **How will we choose the optimal model before the final benchmark?**
 
@@ -339,12 +313,12 @@ The final benchmark after selecting our best model will be to use it and compare
 * **GOAL:** Get a lower score than Hari. 
 * The lower the score, the better the prediction.
 
-______
+
+
+____________________
 
 
   ## III. Methodology
-
-  _(approx. 3-5 pages)_
 
   ### Data Preprocessing
 
@@ -364,41 +338,68 @@ For each feature we will verify if they are ok as they are provided, or if some 
 
 - **Store** (the store number) - This is correctly formatted from the original dataset provided by Walmart. 
 - **Dept** (the department number) - This is correctly formatted from the original dataset provided by Walmart. 
-- **Date** - This needed to be formatted into a date format in order to merge the datasets correctly. Here we used *datetime* function in Python seen in the jupyter notebook. 
-- **Temperature** (average temperature in the region) - 
-- **Fuel_Price** (cost of fuel in the region) - 
-- **MarkDown1-5** - anonymized data related to promotional markdowns. MarkDown data is only available after * Nov 2011, and is not available for all stores all the time. Any missing value is marked with an NA
-- **CPI** - the consumer price index
-- **Unemployment** (the unemployment rate) - 
-- **IsHoliday** (whether the week is a special holiday week) - 
+- **Date** (for the analysis) - This needed to be formatted into a date format in order to merge the datasets correctly and then be read during data visualisation to get the graphs looking correct. Here we used *datetime* function in Python seen in the jupyter notebook. 
+- **Date** (set up for model input) - After the visualisation was completed, we created dummy variables for each month in order to provide our regression models to pick up historical trends. They were split into month_1	month_2	month_3	month_4	month_5	month_6	month_7	month_11	month_12, representing each month of the year where if it was the month, the value in that column would be equal to one, and the rest of the columns be equal to zero. 
+  - *Example*: If a datapoint is from January, the column **month_1** would be equal to **1** and the columns **month_2-month_12** would all be equal to zero. 
+- **Temperature** (average temperature in the region) - Had to process 138 586 NaN-values. As we are doing a regression analysis, these values were replaced with the mean of the total dataset. This is because we looked at the overall value from the graph and saw that the temperatures were seasonal, but did not have an overall positive or negative trend year over year (YoY).  
+- **Fuel_Price** (cost of fuel in the region) - The fuel price had the same issue as the temperature feature. where we had to process 138 586 NaN-values. As we are doing a regression analysis, these values were replaced with the mean of the total dataset. Although we found a slight decline in the overall data, it is not significant enough to show any larger results by using the mean.  
+- **MarkDown1-5** (anonymized data related to promotional markdowns) - As MarkDown data is only available after * Nov 2011, and is not available for all stores all the time, the other missing value is marked with an NA. This had to be dealt with where we simply exchanged them into 0s (zeros) in order to be processed in both graphs and our forecasting models. 
+- **CPI** (the consumer price index) - The CPI was in the same position as the temperature where we had to once again replace 138 586 NaN values. As we are doing a regression analysis, these values were replaced with the mean of the total dataset. This is because we looked at the overall value from the graph there is not a big enough trend for us to use something different than the mean of the overall CPI-data.  
+- **Unemployment** (the unemployment rate) - The unemployment had the same issue as previously described features where we had 138 586 NaN values we had to deal with. In a similar fashion, the difference is not substantial enough to not simply use the mean as a replacement of the NaN-values. 
+- **IsHoliday** (whether the week is a special holiday week) - The answer provided for this feature of wheter there is a holiday or not during this date was represented with a string of either **False** or **True**. We replaced this with setting the False-values to zero, and making the True-values into ones so we can process the data in our models.
 
-- **Weekly_Sales** (sales for the given department in the given store) - 
-- **IsHoliday** (whether the week is a special holiday week) - 
+- **Weekly_Sales** (sales for the given department in the given store) - This feature was set up and ready for use in our models, so no action was needed for this one. 
 
-- **The store number** (anonomised) - 
-- **Type** - 
-- **Size** - 
+- **The store number** (anonomised) - This feature was set up and ready for use in our models, so no action was needed for this one. 
+- **Type** - There were three types of stores, being:
+  - Type A
+  - Type B
+  - Type C
+    - To set this up correctly for both visualisation and be processed in our machine learning modeels, we created dummy variables for each type in the same way as we did with the date/months earlier. So if a datapoint is a Type_A, it would be equal to 1, and the  Type_B and Type_C columns would be equal to zero. 
+    - This is in order for our models to pick up on this feature being significant or not in contributing to our dependent variable = Weekly_Sales.
+- **Size** - This feature was set up and ready for use in our models, so no action was needed for this one. 
 
 
 
 ##### Fixing Abnormalities & Characteristics
 
-* There were multiple NaN values that needed to be dealt with for different features. For this we used a few different ways of dealing with them, explained below.
-  * d
+* There were multiple NaN values that needed to be dealt with for different features. For this we used a few different ways of dealing with them, which are explained both above and as a consise reminder below as well.
+  * **Markdown1-5** - we replaced the NaN-values and replaced them with 0s (zeros) in order to be processed in both graphs and our forecasting models.
+  * **Temperature** (average temperature in the region) - Had to process 138 586 NaN-values. As we are doing a regression analysis, these values were replaced with the mean of the total dataset. This is because we looked at the overall value from the graph and saw that the temperatures were seasonal, but did not have an overall positive or negative trend year over year (YoY).  
+  * **Fuel_Price** (cost of fuel in the region) - The fuel price had the same issue as the temperature feature. where we had to process 138 586 NaN-values. As we are doing a regression analysis, these values were replaced with the mean of the total dataset. Although we found a slight decline in the overall data, it is not significant enough to show any larger results by using the mean.  
+  * **MarkDown1-5** (anonymized data related to promotional markdowns) - As MarkDown data is only available after * Nov 2011, and is not available for all stores all the time, the other missing value is marked with an NA. This had to be dealt with where we simply exchanged them into 0s (zeros) in order to be processed in both graphs and our forecasting models. 
+  * **CPI** (the consumer price index) - The CPI was in the same position as the temperature where we had to once again replace 138 586 NaN values. As we are doing a regression analysis, these values were replaced with the mean of the total dataset. This is because we looked at the overall value from the graph there is not a big enough trend for us to use something different than the mean of the overall CPI-data.  
+  * **Unemployment** (the unemployment rate) - The unemployment had the same issue as previously described features where we had 138 586 NaN values we had to deal with. In a similar fashion, the difference is not substantial enough to not simply use the mean as a replacement of the NaN-values. 
+  * **IsHoliday** (whether the week is a special holiday week) - The answer provided for this feature of wheter there is a holiday or not during this date was represented with a string of either **False** or **True**. We replaced this with setting the False-values to zero, and making the True-values into ones so we can process the data in our models.
 
 
 
   ### Implementation
 
-  In this section, the process for which metrics, algorithms, and techniques that you implemented for the given data will need to be clearly documented. It should be abundantly clear how the implementation was carried out, and discussion should be made regarding any complications that occurred during this process. Questions to ask yourself when writing this section:
+#### Process for which metrics and algorithms were implemented
 
-  - _Is it made clear how the algorithms and techniques were implemented with the given datasets or input data?_
-  - _Were there any complications with the original metrics or techniques that required changing prior to acquiring a solution?_
-  - _Was there any part of the coding process (e.g., writing complicated functions) that should be documented?_
+As we stated earlier, after some intial visualisation we set up the hypothesis where the use of a linear regression problem will not be optimal here as the data seems to indicate non-linearity. Therefore, we used a multitude of popular machine learning algorithms, including linear regression models to test our hypothesis. All models are specified in more detail in the earlier section, but below we find a reminder of them:
 
-  **Olle**
+* **Linear Regression** (Linear model)
+* **KNeighborsRegressor** (KNN) 
+* **Decision Tree Regressor** (Tree model) 
+* **Random Forest Regressor** (Enemble model) 
+* **Extra Trees Regressor** (Ensemble model)
+* **XGBoost** (gradient boosted decision trees) 
+* **Ridge** (Linear model) 
+* **Lasso** (Linear model) 
 
-  
+Most of these models were imported from the Scikit-Learn library, with the exception of XGBoost, which we had to use ''pip install xgboost'' in our local virtual environment to use. 
+
+We then chose three different accuracy metrics (specified in the earlier section) as well as a model evaluation metric for the models robustness (see earlier section for a longer description). 
+
+So the final process to use our model was to take our train and test data and split it out so that the Weekly_Sales were our train_y and the other features were put in a train_X dataframe. We then split the data so we had 80% of the data to train on, and the other 20% saved in a validation/test dataframe. Which we then could use to compare our training and test data and produce our performance metrics for each machine learning model specified above. 
+
+#### Complications during the coding process
+
+* **Virtual Environemnt complications** - In short the Scikit-Learn library took me a full day to get to work on my virtual environment from Anaconda (conda). This was a faulty mistake that could be avoided if I would have used for example **google colab** or the notebook instances from **AWS Sagemaker**. But as of this project, having done two projects using cloud computing, it felt like a beneficial practice to do this sort of project locally where I connected my github-reposatory to my local laptop, and pushed updates to the repo. An overall learning curve that increased the project time a lot. 
+* **Formatting of the results output** - I wanted something easily readable and spent some hours on just making it clear for the reader what model comes up next, and what was the performance of that model in plain text. Turned out pretty good in my opinion. 
+* **0.99% R-square** - A pure mistake that took me hours as well, where the R-square of the models was close to 1.0. In practice, having a model with such a high value should raise some red flags, which it did in my case. The obvious problem was that I used the training data instead of the test data for the calculation, resulting in comparing the training data to the training data instead of the test data. An obvious but small enough error for me to spend hours on thinking that the hole model was set up incorrectly and adjusting hyperparameters etc. In the end it worked out.  
 
   ### Refinement
 
@@ -410,86 +411,202 @@ For each feature we will verify if they are ok as they are provided, or if some 
 
   **Olle**
 
+#### Process of improving the algorithms
+
+After testing the models without any tuning, I found the **Extra Trees Regressor** to show very promising results, where hyperparameters tuning was made to increase its accuracy even further. Adjusting;
+
+* Min_impurity_decrease = 0.0 from 0.5
+* min_samples_leaf = tested 1, 2, 3, 4, 5 where 2 gave the best results.
+* min_samples_split = tested 1-10, where 5 gave the best results. 
+* n_estimators = tested 10-200, where 100 gave the best results. 
+* n_jobs = tested between 1-50, where 30 gave the best results. 
+
+
+
+#### Initial Solution
+
+This resulted in a performance score for the Extra Trees Regressor of: 
+
+```Python
+MAE:  3535.2593445429543
+MSE:  54359852.62139243
+RMSE:  7372.913441875771
+R^2: 0.8499083169231559
+```
+
+Comapred to the 2nd best model: **Random Forest Regressor**, with: 
+
+```Python
+MAE:  4267.170097112522
+MSE:  80946568.05601971
+RMSE:  8997.031068970458
+R^2: 0.7765003756827497
+```
+
+The worst performer was the Linear Regression with the score of: 
+
+```python
+MAE:  11791.51373494347
+MSE:  338619797.9313162
+RMSE:  18401.624872040953
+R^2: 0.06504501127637086
+```
+
+
+
+#### Final Solution
+
+With the hyperparameters being optimised for our best model, the final model was then used with the testing data that is used for the submission of the kaggle competition prediciton. The results of them will be found in the following section: "Results".
+
   
 
 
   ## IV. Results
 
-  _(approx. 2-3 pages)_
-
   ### Model Evaluation and Validation
 
-  In this section, the final model and any supporting qualities should be evaluated in detail. It should be clear how the final model was derived and why this model was chosen. In addition, some type of analysis should be used to validate the robustness of this model and its solution, such as manipulating the input data or environment to see how the model’s solution is affected (this is called sensitivity analysis). Questions to ask yourself when writing this section:
+  #### Final Models Qualities & Parameters
 
-  - _Is the final model reasonable and aligning with solution expectations? Are the final parameters of the model appropriate?_
-  - _Has the final model been tested with various inputs to evaluate whether the model generalizes well to unseen data?_
-  - _Is the model robust enough for the problem? Do small perturbations (changes) in training data or the input space greatly affect the results?_
-  - _Can results found from the model be trusted?_
+The parameters for the **Extra Trees Regressor** showed after some tinkering and adjustment the most promising results, where hyperparameters tuning was made to increase its accuracy even further. Adjusting;
 
-  **Olle**
+* **Min_impurity_decrease** =tested 0.0 to 0.9, where 0.0 gave the best results. This basically determines that a node will be split if this split induces a decrease of the impurity greater or equal to the value we set here. It basically helps us control how deep our tree grows, based on the impurity. The impurity measure defines how well a number of classes are separated (Mithrakumar, 2019). 
+* **min_samples_leaf** = tested 1-20 where 2 gave the best results. According to academic studies, the ideal value seems to be around1-20 (Mantovani et al., 2018), which proved to be correct in our model. 
+* **min_samples_split** = tested 1-40, where 5 gave the best results. In the same academic study as mentioned in the min_samples_leaf, the best value seems to be between 1-40 (Mantovani et al., 2018), where 5 was the best one in our case. 
+* **n_estimators** = tested 10-200, where 100 gave the best results. In short this describes the number of trees to be used in our forest. As this models is an ensemble method containing a lot of different decision trees, this factor controls how many trees should be used. 
+* **n_jobs** = tested between 1-50, where 30 gave the best results. This basically specifies the max number of concurrent workers / run in parallel. Nothing to add to this point. 
 
-  
+
+
+#### Validation of Robustness of Model
+
+The R-square metric showed us with the hypothesis of testing that this is not a dataset where linear regression models would be the dominant player, as it looked like non-linear data. Therefore the R^2 should be low for the linear regression models, which proved to be the case. 
+
+The best model got got a R^2 score of 0.85, which is some impressive results being that close to 1.0. 
+
+In terms of R^2 as a metric of goodness of fit or robustness, we must  recognise the fact that the academic litterature around using R^2 as a goodness of fit or robustness metric for models can be argued to not be optimal. For example Lewis-Beck (1990) stated in his article that academics argue that R^2 "measures nothing of importance". But this is not a one way street as many academics think this should be used and provides good information (Lewis-Beck & Skalaban, 1990), but we should still acknowledge this fact if this was implemented in Walmart. In another case we could use R^2 in combination with using k-fold cross validation to validate our robustness of fit of the model, which could make the concluding results more robust.  
+
+
 
   ### Justification
 
-  In this section, your model’s final solution and its results should be compared to the benchmark you established earlier in the project using some type of statistical analysis. You should also justify whether these results and the solution are significant enough to have solved the problem posed in the project. Questions to ask yourself when writing this section:
+#### Comparison to Benchmark
 
-  - _Are the final results found stronger than the benchmark result reported earlier?_
-  - _Have you thoroughly analyzed and discussed the final solution?_
-  - _Is the final solution significant enough to have solved the problem?_
+Our final model was used with the final test data that is used for the kaggle competition, which got us a score of ***3883.47399*** which puts us in a better spot than our benchmark: Hari Khanal", with the score of ***3985.79966.*** 
 
-  **Olle**
+The industry standards of linear regression was clearly not the best for this problem if we look at the performance measurement metrics. However, that it beat the fan favourite XGboost was a bit of a pleasant surprise to me. 
+
+![celebrate](https://www.pblworks.org/sites/default/files/inline-images/celebration.jpg)
+
+#### Is the final model sigificant enough to solve the problem?
+
+Given the fact that the score is significantly better than our competitor we wanted to beat and it's not a decimal difference between the scores, we would classify that we have solved this problem in this case. So good job Olle!
+
+However, using statistical measurements for comparing our model to the competitor on Kaggle will not be possible as the submissions are not public, unless a project is made public. Although, there is a low probability that the retail giant Walmart would set up performance measurements of a model to be easy to game as the winner got hired to their forecasting department. So in this case we put the trust in the performance measurements that gives us the score on the leaderboard. 
 
   
 
 
   ## V. Conclusion
 
-  _(approx. 1-2 pages)_
-
   ### Free-Form Visualization
 
-  In this section, you will need to provide some form of visualization that emphasizes an important quality about the project. It is much more free-form, but should reasonably support a significant result or characteristic about the problem that you want to discuss. Questions to ask yourself when writing this section:
+In my opinion, the relevant take-away and key success-factor for this project was to identify the non-linearity in the data. The sales graph showed us how there are some cruicial parts of the year we needed to address, specifically the christmas spike which stands out a lot. Having the date on the X-axis and the sales on the Y-axis made it clear what time-periods will be important to capture in our prediciton models. 
 
-  - _Have you visualized a relevant or important quality about the problem, dataset, input data, or results?_
-  - _Is the visualization thoroughly analyzed and discussed?_
-  - _If a plot is provided, are the axes, title, and datum clearly defined?_
+![sales](sales.png)
 
-  **Olle**
+In addition to identifying the non-linearity in the data, having the general grasp of what the data looks like from a "birds eye view" was helpful to identify for instance positive or negative trends over time. Therefore the below graphed helped out a lot in that specific area. As before, having the date on the X-axis and the sales on the Y-axis made it clear of how the features acted over time. 
 
-  
+![sales](features_graph.png)
+
+The correlation heat map gave us a birds eye view of how the different features are correlated with each other. However, with the main goal being the prediciton of Weekly Sales, the bar chart you find below was more useful of addressing what affects the sales over the different features. The important metrics to address, such as the *Size* and the *Type_A* sticks out like a soar thumb with this visualisation, which is important for quickly analysing what features are cruicial to address in the final modeling. 
+
+![features](corr_plot.png)
+
+
 
   ### Reflection
 
-  In this section, you will summarize the entire end-to-end problem solution and discuss one or two particular aspects of the project you found interesting or difficult. You are expected to reflect on the project as a whole to show that you have a firm understanding of the entire process employed in your work. Questions to ask yourself when writing this section:
+#### Summary of Solution
 
-  - _Have you thoroughly summarized the entire process you used for this project?_
-  - _Were there any interesting aspects of the project?_
-  - _Were there any difficult aspects of the project?_
-  - _Does the final model and solution fit your expectations for the problem, and should it be used in a general setting to solve these types of problems?_
+In short, we took and cleaned the data and structured it in a way that we could visualise it in a well-suited fasion using correlation heat maps, plots and bar charts to get across what is important when we predict the weekly sales for Walmart. 
 
-  **Olle**
+We then found what machine learning models are popular today, and tested the hypothesis of non-linearity in our dataset by including models we think will not give the best results, so we can be certain that the **good models** are interpreted correctly. In this case for example the linear regressions were not the right choice, while ensemble models such as the Extra Trees Regressor and the gradient boosted decision trees, such as XGBoost showed more promise in our final predicitions. 
 
-  
+Using this structure and execution, we got a result that put us above our benchmark and could theoretically be implemented into the sorucing and purcharce decision making in Walmart. 
 
-  ### Improvement
+Good job us.  
 
-  In this section, you will need to provide discussion as to how one aspect of the implementation you designed could be improved. As an example, consider ways your implementation can be made more general, and what would need to be modified. You do not need to make this improvement, but the potential solutions resulting from these changes are considered and compared/contrasted to your current solution. Questions to ask yourself when writing this section:
+#### Interesting aspect of the project - #1
 
-  - _Are there further improvements that could be made on the algorithms or techniques you used in this project?_
-  - _Were there algorithms or techniques you researched that you did not know how to implement, but would consider using if you knew how?_
-  - _If you used your final solution as the new benchmark, do you think an even better solution exists?_
+The testing of hyptohesises was one of the more interesting areas to me. Because we could sample many models and just test them out and see this the other way around that the data is non-linear. However the mental reward of trying to identify this earlier before going into the modeling was an incredible feeling and made it feel like this project both gave me something concrete, but also showed that I understand these aspects of statistics and machine learning. 
 
-  **Olle**
+#### Interesting aspect of the project - #2 
+
+The other aspect that was more difficult was understanding the reason why changing the hyperparameters from X to Y actually meant. For example how our data is improved by having a min_samples_split of 5 instead of 4 was better for our model. This is an area I will continue to research and try to get a more fundamental understanding so that the tuning of the models will be even better my future projects. 
+
+
+
+  ### Area of Improvement
+
+* **Cross validation** - I think an improvement in the implementation would be to do some cross validation using for example the k-fold cross validation technique. As mentioned earlier, we must  recognise the fact that the academic litterature around using R^2 as a goodness of fit or robustness metric for models can be argued to not be optimal. For example Lewis-Beck (1990) stated in his article that academics argue that R^2 "measures nothing of importance". To have a more robust method to test the robustness / goodness of fit of the machine learning algorithms, that would be one way that could be improved in a similar future project.  
+
+
 
 
 
 ## Before submission, ask the following: 
 
-- Does the project report you’ve written follow a well-organized structure similar to that of the project template? **Answer:**
-- Is each section (particularly **Analysis** and **Methodology**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification? **Answer:**
-- Would the intended audience of your project be able to understand your analysis, methods, and results? **Answer:**
-- Have you properly proof-read your project report to assure there are minimal grammatical and spelling mistakes? **Answer:**
-- Are all the resources used for this project correctly cited and referenced? **Answer:**
-- Is the code that implements your solution easily readable and properly commented? **Answer:**
-- Does the code execute without error and produce results similar to those reported? **Answer:**
+- Does the project report you’ve written follow a well-organized structure similar to that of the project template? **Answer:** Yes.
+- Is each section (particularly **Analysis** and **Methodology**) written in a clear, concise and specific fashion? Are there any ambiguous terms or phrases that need clarification? **Answer:** Not that I can see, feel free to let me know if something needs any clarification. 
+- Would the intended audience of your project be able to understand your analysis, methods, and results? **Answer:** I believe so. 
+- Have you properly proof-read your project report to assure there are minimal grammatical and spelling mistakes? **Answer:** Yes, mutliple times. 
+- Are all the resources used for this project correctly cited and referenced? **Answer:** Yes, see reference list below. 
+- Is the code that implements your solution easily readable and properly commented? **Answer:** Yes, there are comments where it's needed. 
+- Does the code execute without error and produce results similar to those reported? **Answer:** Yes, in my local notebook instance which is connected to the provided github repo, there are no errors when ran and outputs are created correctly. 
+
+
+
+# References 
+
+analyticsvidhya. (2018, September 6). Understanding the Math behind the XGBoost Algorithm. Retrieved from Analytics Vidhya website: https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/
+
+analyticsvidhya. (2019, March 7). Introduction to KNN, K-Nearest Neighbors : Simplified. Retrieved from Analytics Vidhya website: https://www.analyticsvidhya.com/blog/2018/03/introduction-k-neighbours-algorithm-clustering/
+
+Brownlee, J. (2020a, April 19). How to Develop a Random Forest Ensemble in Python. Retrieved July 13, 2020, from Machine Learning Mastery website: https://machinelearningmastery.com/random-forest-ensemble-in-python/
+
+Brownlee, J. (2020b, April 21). How to Develop an Extra Trees Ensemble with Python. Retrieved July 13, 2020, from Machine Learning Mastery website: https://machinelearningmastery.com/extra-trees-ensemble-with-python/
+
+Carbonneau, R., Laframboise, K., & Vahidov, R. (2008). Application of machine learning techniques for supply chain demand forecasting. *European Journal of Operational Research*, *184*(3), 1140–1154. https://doi.org/10.1016/j.ejor.2006.12.004
+
+Chai, T., & Draxler, R. R. (2014). Root mean square error (RMSE) or mean absolute error (MAE)? – Arguments against avoiding RMSE in the literature. *Geoscientific Model Development*, *7*(3), 1247–1250. https://doi.org/10.5194/gmd-7-1247-2014
+
+Jaipuria, S., & Mahapatra, S. S. (2014). An improved demand forecasting method to reduce bullwhip effect in supply chains. *Expert Systems with Applications*, *41*(5), 2395–2408. https://doi.org/10.1016/j.eswa.2013.09.038
+
+Kavsaoğlu, A. R., Polat, K., & Hariharan, M. (2015). Non-invasive prediction of hemoglobin level using machine learning techniques with the PPG signal’s characteristics features. *Applied Soft Computing*, *37*(37), 983–991. https://doi.org/10.1016/j.asoc.2015.04.008
+
+Law, R. (2000). Back-propagation learning in improving the accuracy of neural network-based tourism demand forecasting. *Tourism Management*, *21*(4), 331–340. https://doi.org/10.1016/s0261-5177(99)00067-9
+
+Lewis-Beck, M. S., & Skalaban, A. (1990). The R-Squared: Some Straight Talk. *Political Analysis*, *2*(2), 153–171. https://doi.org/10.1093/pan/2.1.153
+
+Mithrakumar, M. (2019, November 12). How to tune a Decision Tree? Retrieved July 13, 2020, from Medium website: https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680
+
+Nair, A., & Vidal, J. M. (2011). Supply network topology and robustness against disruptions – an investigation using multi-agent model. *International Journal of Production Research*, *49*(5), 1391–1404. https://doi.org/10.1080/00207543.2010.518744
+
+Python Software Foundation. (2002). datetime — Basic date and time types — Python 3.7.2 documentation. Retrieved from Python.org website: https://docs.python.org/3/library/datetime.html
+
+scikit-learn.org. (2019). Decision Tree Regression. Retrieved from scikit-learn.org website: https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html
+
+Rafael Gomes Mantovani, Tomáš Horváth, Ricardo Cerri, Sylvio Barbon Junior, Joaquin Vanschoren, André Carlos Ponce de Leon Ferreira de Carvalho, “[An empirical study on hyperparameter tuning of decision trees](https://arxiv.org/abs/1812.02207)”
+arXiv:1812.02207
+
+Suganthi, L., & Samuel, A. A. (2012). Energy models for demand forecasting—A review. *Renewable and Sustainable Energy Reviews*, *16*(2), 1223–1240. https://doi.org/10.1016/j.rser.2011.08.014
+
+Thomas, D. J., & Griffin, P. M. (1996). Coordinated supply chain management. *European Journal of Operational Research*, *94*(1), 1–15. https://doi.org/10.1016/0377-2217(96)00098-7
+
+Vanichrujee, U., Horanont, T., Pattara-atikom, W., Theeramunkong, T., & Shinozaki, T. (2018). Taxi Demand Prediction using Ensemble Model Based on RNNs and XGBOOST. *2018 International Conference on Embedded Systems and Intelligent Technology & International Conference on Information and Communication Technology for Embedded Systems (ICESIT-ICICTES)*, (18044498). https://doi.org/10.1109/icesit-icictes.2018.8442063
+
+Willmott, C. J., Ackleson, S. G., Davis, R. E., Feddema, J. J., Klink, K. M., Legates, D. R., … Rowe, C. M. (1985). Statistics for the evaluation and comparison of models. *Journal of Geophysical Research*, *90*(C5), 8995. https://doi.org/10.1029/jc090ic05p08995
+
+Willmott, C., & Matsuura, K. (2005). Advantages of the mean absolute error (MAE) over the root mean square error (RMSE) in assessing average model performance. *Climate Research*, *30*(1), 79–82. https://doi.org/10.3354/cr030079
+
+Zhang, L., Liu, Q., Yang, W., Wei, N., & Dong, D. (2013). An Improved K-nearest Neighbor Model for Short-term Traffic Flow Prediction. *Procedia - Social and Behavioral Sciences*, *96*(96), 653–662. https://doi.org/10.1016/j.sbspro.2013.08.076

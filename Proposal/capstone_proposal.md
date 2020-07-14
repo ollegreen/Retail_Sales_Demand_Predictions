@@ -20,8 +20,7 @@ The problem organisations SCM-departments face is that inaccurate forecasting fo
 
 ### Datasets and Inputs
 
-We will use the dataset provided by Manjeet Singh on Kaggle.com "Retail Data Analytics
-Historical sales data from 45 stores" [link](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting/data). We are provided with historical sales data for 45 stores located in different regions - each store contains a number of departments. The company also runs several promotional markdown events throughout the year. These markdowns precede prominent holidays, the four largest of which are the Super Bowl, Labor Day, Thanksgiving, and Christmas. The weeks including these holidays are weighted five times higher in the evaluation than non-holiday weeks. 
+We will use the dataset provided by Walmart on Kaggle.com "Walmart Recruiting - Store Sales Forecasting"you find the link to the dataset [here](https://www.kaggle.com/c/walmart-recruiting-store-sales-forecasting/data). We are provided with historical sales data for 45 stores located in different regions - each store contains a number of departments. The company also runs several promotional markdown events throughout the year. These markdowns precede prominent holidays, the four largest of which are the Super Bowl, Labor Day, Thanksgiving, and Christmas. The weeks including these holidays are weighted five times higher in the evaluation than non-holiday weeks. 
 
 In the dataset we find three separate files: features, stores, test, train, sample submission. 
 
