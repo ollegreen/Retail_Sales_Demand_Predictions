@@ -1,4 +1,8 @@
-# Demand Forecasting for Retail Company - Udacity Capstone Project
+# Demand Forecasting - Walmart
+
+*Let's do some data science.*
+
+![walmart](https://securitytoday.com/-/media/SEC/Security-Products/Images/2019/09/walmartstore.jpg)
 
 - Background - This is part of the Udacity Machine Learning Engineer Nanodegree, being the final project.
 
