@@ -1,8 +1,8 @@
 # Demand Forecasting - Walmart
 
-*Let's do some data science.*
+*Let's predict the future sales of a large American retailer.*
 
-![walmart](https://securitytoday.com/-/media/SEC/Security-Products/Images/2019/09/walmartstore.jpg)
+![walmart](https://prod-lippincott.imgix.net/app/uploads/2020/01/02210649/Walmart1_Logo-scaled.jpg?auto=false%2Ccompress&q=90&w=1400)
 
 - Background - This is part of the Udacity Machine Learning Engineer Nanodegree, being the final project.
 
